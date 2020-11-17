@@ -16,6 +16,10 @@ function recipes(){
 function singleRecipe(){
     $recipe = new Recette();
     $recipe = $recipe->recipe($_GET['recipeID']);
+    $ingredient = new Recette();
+    $ingredient = $ingredient->ingredient($_GET['recipeID']);
+    $directive = new Recette();
+    $directive = $directive->directive($_GET['recipeID']);
     require('views/recipe.php');
 }
 
