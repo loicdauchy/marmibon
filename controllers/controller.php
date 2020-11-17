@@ -7,11 +7,6 @@ function testView()
     require('views/home.php');
 }
 
-function testView2()
-{
-    require('views/recipe.php');
-}
-
 function recipes(){
     $allRecipe = new Recette();
     $allRecipe = $allRecipe->recettes();
@@ -23,3 +18,18 @@ function singleRecipe(){
     $recipe = $recipe->recipe($_GET['recipeID']);
     require('views/recipe.php');
 }
+
+function randRecipe(){
+    $RandRecipe = new Recette();
+    $RandRecipe = $RandRecipe->daysRecipe();
+
+    $RandRecipe2 = new Recette();
+    $RandRecipe2 = $RandRecipe2->daysRecipe2();
+
+
+    $RandRecipe3 = new Recette();
+    $RandRecipe3 = $RandRecipe3->daysRecipe3();
+
+    require('views/recipesday.php');
+}
+

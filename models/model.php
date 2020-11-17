@@ -17,4 +17,28 @@ class Recette extends Databases{
         $result = $recette->fetch(PDO::FETCH_ASSOC);
         return $result;
      }
+
+     public function daysRecipe(){
+        $recette = $this->connect()->prepare('SELECT * FROM recette ORDER BY RAND()
+        LIMIT 6');
+        $recette->execute();
+        $result = $recette->fetch(PDO::FETCH_ASSOC);
+        return $result;
+     }
+
+     public function daysRecipe2(){
+        $recette = $this->connect()->prepare('SELECT * FROM recette ORDER BY RAND()
+        LIMIT 6');
+        $recette->execute();
+        $result = $recette->fetch(PDO::FETCH_ASSOC);
+        return $result;
+     }
+
+     public function daysRecipe3(){
+        $recette = $this->connect()->prepare('SELECT * FROM recette ORDER BY RAND()
+        LIMIT 6');
+        $recette->execute();
+        $result = $recette->fetch(PDO::FETCH_ASSOC);
+        return $result;
+     }
 }

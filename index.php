@@ -6,4 +6,7 @@ if (isset($_GET['recipeID'])) {
  }else {  
          echo recipes();
      }
+
+// echo randRecipe();
+// echo testView();
 require_once ('templates/template.php');
