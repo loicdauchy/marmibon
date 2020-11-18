@@ -116,9 +116,10 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>                                  
-                                    <li><a href="receipe-post.html">Recette</a></li>                                   
-                                    <li><a href="contact.html">Toute nos recette</a></li>
+                                    <li class="active"><a href="<?='?home'?>">Home</a></li>                                  
+                                    <li><a href="<?='?recipeID=1'?>">Recette</a></li>                                   
+                                    <li><a href="<?='?recipes'?>">Toute nos recette</a></li>
+                                    <li><a href="<?='?dayRecipes'?>">Recette du jour</a></li>
                                 </ul>
 
                                 <!-- Newsletter Form -->

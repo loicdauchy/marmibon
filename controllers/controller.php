@@ -18,6 +18,8 @@ function singleRecipe(){
     $recipe = $recipe->recipe($_GET['recipeID']);
     $ingredient = new Recette();
     $ingredient = $ingredient->ingredient($_GET['recipeID']);
+    $quantity = new Recette();
+    $quantity = $quantity->quantity($_GET['recipeID']);
     $directive = new Recette();
     $directive = $directive->directive($_GET['recipeID']);
     require('views/recipe.php');
@@ -35,5 +37,12 @@ function randRecipe(){
     $RandRecipe3 = $RandRecipe3->daysRecipe3();
 
     require('views/recipesday.php');
+}
+
+function search(){
+    
+    $search = new Recette();
+    $search = $search->searchR();
+    require('views/selectrecipe.php');
 }
 

@@ -14,6 +14,51 @@
                 </div>
             </div>
 
+
+        <div class="receipe-post-search mb-80">
+            <div class="container">
+                <h4>Recherche par <span style="color: #1c8314;">ingrédients</span> :</h4>
+                <form action="<?='?selectrecipe'?>" method="post">
+                    <div class="row">
+                        <div class="col-12 col-lg-3">
+                            <input type="search" name="search" placeholder="Ingrédient">
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <input type="search" name="search" placeholder="Ingrédient">
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <input type="search" name="search" placeholder="Ingrédient">
+                        </div>
+                        <div class="col-12 col-lg-3 text-right">
+                            <button type="submit" name ="selectrecipe" class="btn delicious-btn">Chercher</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="receipe-post-search mb-80">
+            <div class="container">
+                <h4>Recherche par <span style="color: #1c8314;">goûts</span> :</h4>
+                <form action="<?='?selectrecipe'?>" method="post">
+                    <div class="row">
+                        <div class="col-12 col-lg-3">
+                            <input type="search" name="search" placeholder="Recette">
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <input type="search" name="search" placeholder="j'aime">
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <input type="search" name="search" placeholder="je n'aime pas">
+                        </div>
+                        <div class="col-12 col-lg-3 text-right">
+                            <button type="submit" name="selectrecipe" class="btn delicious-btn">Chercher</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
             <div class="row">
                 <!-- Single Best Receipe Area -->
                 <?php foreach($allRecipe as $result){  ?>
