@@ -18,10 +18,18 @@ function singleRecipe(){
     $recipe = $recipe->recipe($_GET['recipeID']);
     $ingredient = new Recette();
     $ingredient = $ingredient->ingredient($_GET['recipeID']);
-    $quantity = new Recette();
-    $quantity = $quantity->quantity($_GET['recipeID']);
+    $tquantity = new Recette();
+    $tquantity = $tquantity->tquantity($_GET['recipeID']);
+    $bquantity = new Recette();
+    $bquantity = $bquantity->bquantity($_GET['recipeID']);
+    $qid = new Recette();
+    $qid = $qid->qid($_GET['recipeID']);
+    $change = new Recette();
+    $change = $change->change();
     $directive = new Recette();
     $directive = $directive->directive($_GET['recipeID']);
+    $service = new Recette();
+    $service = $service->service($_GET['recipeID']);
     require('views/recipe.php');
 }
 
@@ -40,7 +48,7 @@ function randRecipe(){
 }
 
 function search(){
-    
+
     $search = new Recette();
     $search = $search->searchR();
     require('views/selectrecipe.php');

@@ -57,7 +57,7 @@
                         ?>
                         <div class="single-preparation-step d-flex">
                 
-                            <p> <?=$dir?> </p>
+                            <p style="color:#474747; font-size:1.2rem;font-weight:bold"> <?=$dir?> </p>
                         </div>
 
                         <?php
@@ -69,13 +69,36 @@
                     <div class="col-12 col-lg-4">
                         <div class="ingredients">
                             <h4>Ingrédients:</h4>
+
+                            <form action="" method="POST" class="d-flex flex-column w-75">
+                            <input style="border:1px solid #40ba37; color:#40ba37;height:40px;font-size:1.5rem" type="number" name="srv" value="<?=$service['srv']?>">
+                            <button class="btn btn-success" type="submit" value="ajouter" name="action">Changer</button>
+                            
                             <div style="display:flex;">
                             <!-- Custom Checkbox -->
-                            <h4 style="display:flex; flex-direction:column; width:20px; color:#40ba37;">
                             <?php
-                                foreach($quantity as $qty){                                        
+                                foreach($qid as $id){                                        
                             ?>                            
-                                <?= $qty."<br>"?>
+                                <?= "<input type='hidden' name='qid' value='".$id."'<br>"?>
+                            <?php 
+                            }
+                            ?>
+                                
+                                <?= "<input type='hidden' name='bqty' value='".$bquantity['qty1']."'<br>"?>
+                                <?= "<input type='hidden' name='bqty2' value='".$bquantity['qty2']."'<br>"?>
+                                <?= "<input type='hidden' name='bqty3' value='".$bquantity['qty3']."'<br>"?>
+                                <?= "<input type='hidden' name='bqty4' value='".$bquantity['qty4']."'<br>"?>
+                                <?= "<input type='hidden' name='bqty5' value='".$bquantity['qty5']."'<br>"?>
+                                <?= "<input type='hidden' name='bqty6' value='".$bquantity['qty6']."'<br>"?>
+                          
+                            </form>
+                            
+                            
+                            <h4 class="tqty" style="display:flex; flex-direction:column; width:50px; color:#40ba37;">
+                            <?php
+                                foreach($tquantity as $tqty){                                        
+                            ?>                            
+                                <?= $tqty."<br>"?>
                             <?php 
                             }
                             ?>
@@ -89,6 +112,9 @@
                                 }
                             ?>
                             </h4>
+                            
+                            
+                                               
                             </div>
                         </div>
                     </div>
