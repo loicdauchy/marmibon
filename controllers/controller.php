@@ -4,10 +4,19 @@ require('models/model.php');
 
 /**
  * homeView
- * HOME PAGE CONTROLLER
+ * HOME PAGE AND SEND RAND RECIPES CONTROLLER
  * @return void
  */
 function homeView(){
+    $RandRecipe = new Recette();
+    $RandRecipe = $RandRecipe->daysRecipe();
+
+    $RandRecipe2 = new Recette();
+    $RandRecipe2 = $RandRecipe2->daysRecipe2();
+
+
+    $RandRecipe3 = new Recette();
+    $RandRecipe3 = $RandRecipe3->daysRecipe3();
     require('views/home.php');
 }
 

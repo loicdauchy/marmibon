@@ -6,14 +6,14 @@
  <section class="hero-area">
         <div class="hero-slides owl-carousel">
             <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(public/img/bg-img/bg1.jpg);">
+            <div class="single-hero-slide bg-img" style="background-image:url(<?=$RandRecipe['img_recette'] ?>)">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Delicios Homemade Burger</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
-                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
+                                <h2 data-animation="fadeInUp" data-delay="300ms"><?=$RandRecipe['Name_recette'] ?></h2>
+                                <p data-animation="fadeInUp" data-delay="700ms"><?=$RandRecipe['description_recette'] ?></p>
+                                <a href="<?='?recipeID='.$RandRecipe['Id_recette'] ?>" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">Voir la recette</a>
                             </div>
                         </div>
                     </div>
@@ -21,14 +21,14 @@
             </div>
 
             <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(public/img/bg-img/bg6.jpg);">
+            <div class="single-hero-slide bg-img" style="background-image:url(<?=$RandRecipe2['img_recette'] ?>)">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Delicios Homemade Burger</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
-                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
+                                <h2 data-animation="fadeInUp" data-delay="300ms"><?=$RandRecipe2['Name_recette'] ?></h2>
+                                <p data-animation="fadeInUp" data-delay="700ms"><?=$RandRecipe2['description_recette'] ?></p>
+                                <a href="<?='?recipeID='.$RandRecipe2['Id_recette'] ?>" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">Voir la recette</a>
                             </div>
                         </div>
                     </div>
@@ -36,14 +36,14 @@
             </div>
 
             <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(public/img/bg-img/bg7.jpg);">
+            <div class="single-hero-slide bg-img" style="background-image:url(<?=$RandRecipe3['img_recette'] ?>)">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Delicios Homemade Burger</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
-                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
+                                <h2 data-animation="fadeInUp" data-delay="300ms"><?=$RandRecipe3['Name_recette'] ?></h2>
+                                <p data-animation="fadeInUp" data-delay="700ms"><?=$RandRecipe3['description_recette'] ?></p>
+                                <a href="<?='?recipeID='.$RandRecipe3['Id_recette'] ?>" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">Voir la recette</a>
                             </div>
                         </div>
                     </div>
@@ -52,138 +52,57 @@
         </div>
     </section>
     <!-- ##### Hero Area End ##### -->
-
-
-    <!-- ##### Best Receipe Area Start ##### -->
-    <section class="best-receipe-area">
+    <section class="best-receipe-area" style="margin-top:50px;">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3>The best Receipies</h3>
+                        <h3>Que cuisiner ce soir ?</h3>
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <!-- Single Best Receipe Area -->
+               
+
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
-                        <img src="public/img/bg-img/r1.jpg" alt="">
+                        <img src="<?=$RandRecipe['img_recette'] ?>" alt="">
                         <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Sushi Easy Receipy</h5>
+                            <a href="<?='?recipeID='.$RandRecipe['Id_recette'] ?>">
+                                <h5><?=$RandRecipe['Name_recette'] ?></h5>
                             </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Single Best Receipe Area -->
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
-                        <img src="public/img/bg-img/r2.jpg" alt="">
+                        <img src="<?=$RandRecipe2['img_recette'] ?>" alt="">
                         <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Homemade Burger</h5>
+                            <a href="<?='?recipeID='.$RandRecipe2['Id_recette'] ?>">
+                                <h5><?=$RandRecipe2['Name_recette'] ?></h5>
                             </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Single Best Receipe Area -->
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
-                        <img src="public/img/bg-img/r3.jpg" alt="">
+                        <img src="<?=$RandRecipe3['img_recette'] ?>" alt="">
                         <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Vegan Smoothie</h5>
+                            <a href="<?='?recipeID='.$RandRecipe3['Id_recette'] ?>">
+                                <h5><?=$RandRecipe3['Name_recette'] ?></h5>
                             </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="public/img/bg-img/r4.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Calabasa soup</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="public/img/bg-img/r5.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Homemade Breakfast</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="public/img/bg-img/r6.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Healthy Fruit Desert</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
-    </section>
-    <!-- ##### Best Receipe Area End ##### -->
-
+</section>
     <!-- ##### CTA Area Start ##### -->
     <section class="cta-area bg-img bg-overlay" style="background-image: url(public/img/bg-img/bg4.jpg);">
         <div class="container h-100">
@@ -191,9 +110,9 @@
                 <div class="col-12">
                     <!-- Cta Content -->
                     <div class="cta-content text-center">
-                        <h2>Gluten Free Receipies</h2>
-                        <p>Fusce nec ante vitae lacus aliquet vulputate. Donec scelerisque accumsan molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras sed accumsan neque. Ut vulputate, lectus vel aliquam congue, risus leo elementum nibh</p>
-                        <a href="#" class="btn delicious-btn">Discover all the receipies</a>
+                        <h2>Toutes nos recettes sont faites et pensées pour vous..</h2>
+                        <p>Avec un large choix de recettes, nous vous ferons découvrir dans ce blog des repas original, peu coûteuse et plutôt simple à préparer, pour votre plus grand bonheur et celui de votre porte-monnaie.</p>
+                        <a href="<?='?recipes'?>" class="btn delicious-btn">Découvrir toutes nos recettes</a>
                     </div>
                 </div>
             </div>

@@ -69,8 +69,8 @@
                             <h4>Ingrédients:</h4>
 
                             <form action="" method="POST" class="d-flex flex-column w-75">
-                            <input style="border:1px solid #40ba37; color:#40ba37;height:40px;font-size:1.5rem" type="number" name="srv" value="<?=$service['srv']?>">
-                            <button class="btn btn-success" type="submit" value="ajouter" name="action">Changer</button>
+                            <input style="border:1px solid #ba3753; color:#ba3753;height:40px;font-size:1.5rem" type="number" name="srv" value="<?=$service['srv']?>">
+                            <button class="btn btn-success" style="background:#ba3753 !important; border:none;" type="submit" value="ajouter" name="action">Changer</button>
                             
                             <div style="display:flex;">
                             <!-- Custom Checkbox -->
@@ -92,7 +92,7 @@
                             </form>
                             
                             
-                            <h4 class="tqty" style="display:flex; flex-direction:column; width:50px; color:#40ba37;">
+                            <h4 class="tqty" style="display:flex; flex-direction:column; width:50px; color:#ba3753;">
                             <?php
                                 foreach($tquantity as $tqty){                                        
                             ?>                            
