@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 17 nov. 2020 à 15:09
+-- Généré le :  ven. 20 nov. 2020 à 09:14
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -65,6 +65,7 @@ INSERT INTO `directive` (`Id_recette_directive`, `dir1_directive`, `dir2_directi
 DROP TABLE IF EXISTS `ingredient`;
 CREATE TABLE IF NOT EXISTS `ingredient` (
   `id_recette_ingredient` bigint(255) NOT NULL,
+  `srv` bigint(255) NOT NULL,
   `ing1_ingredient` varchar(255) DEFAULT NULL,
   `ing2_ingredient` varchar(255) DEFAULT NULL,
   `ing3_ingredient` varchar(255) DEFAULT NULL,
@@ -75,11 +76,18 @@ CREATE TABLE IF NOT EXISTS `ingredient` (
   `ing8_ingredient` varchar(255) DEFAULT NULL,
   `ing9_ingredient` varchar(255) DEFAULT NULL,
   `ing10_ingredient` varchar(255) DEFAULT NULL,
-  `ing11_ingredient` varchar(255) DEFAULT NULL,
-  `ing12_ingredient` varchar(255) DEFAULT NULL,
-  `ing13_ingredient` varchar(255) DEFAULT NULL,
-  `ing14_ingredient` varchar(255) DEFAULT NULL,
-  `ing15_ingredient` varchar(255) DEFAULT NULL,
+  `qty1` int(100) NOT NULL,
+  `qty2` int(100) NOT NULL,
+  `qty3` int(100) NOT NULL,
+  `qty4` int(100) NOT NULL,
+  `qty5` int(100) NOT NULL,
+  `qty6` int(100) NOT NULL,
+  `tqty1` int(100) NOT NULL,
+  `tqty2` int(100) NOT NULL,
+  `tqty3` int(100) NOT NULL,
+  `tqty4` int(100) NOT NULL,
+  `tqty5` int(100) NOT NULL,
+  `tqty6` int(100) NOT NULL,
   PRIMARY KEY (`id_recette_ingredient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -87,13 +95,13 @@ CREATE TABLE IF NOT EXISTS `ingredient` (
 -- Déchargement des données de la table `ingredient`
 --
 
-INSERT INTO `ingredient` (`id_recette_ingredient`, `ing1_ingredient`, `ing2_ingredient`, `ing3_ingredient`, `ing4_ingredient`, `ing5_ingredient`, `ing6_ingredient`, `ing7_ingredient`, `ing8_ingredient`, `ing9_ingredient`, `ing10_ingredient`, `ing11_ingredient`, `ing12_ingredient`, `ing13_ingredient`, `ing14_ingredient`, `ing15_ingredient`) VALUES
-(1, 'Pain', 'Steak', 'Ketchup', 'Chedar', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'Pain', 'Saucisse', 'Oignons frit', 'Ketchup', 'Moutarde', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'Pomme de terre', 'Fromage', 'Crème fraiche', 'sel', 'poivre', 'Beurre', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'Pâtes', 'Concentré de tomates', 'crème fraiche', 'Viande hachés', 'sel', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 'Noodles', 'Poulet', 'Sauce teriyaki', 'poivrons', 'sel', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 'Pâte à pain', 'Sauce tomates', 'Viande hachés', 'poivre', 'sel', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `ingredient` (`id_recette_ingredient`, `srv`, `ing1_ingredient`, `ing2_ingredient`, `ing3_ingredient`, `ing4_ingredient`, `ing5_ingredient`, `ing6_ingredient`, `ing7_ingredient`, `ing8_ingredient`, `ing9_ingredient`, `ing10_ingredient`, `qty1`, `qty2`, `qty3`, `qty4`, `qty5`, `qty6`, `tqty1`, `tqty2`, `tqty3`, `tqty4`, `tqty5`, `tqty6`) VALUES
+(1, 3, 'Pain', 'Steak', 'Ketchup', 'Chedar', '', NULL, NULL, NULL, NULL, NULL, 1, 6, 1, 6, 6, 5, 3, 18, 3, 18, 18, 15),
+(2, 4, 'Pain', 'Saucisse', 'Oignons frit', 'Ketchup', 'Moutarde', NULL, NULL, NULL, NULL, NULL, 2, 5, 2, 5, 5, 3, 8, 20, 8, 20, 20, 12),
+(3, 2, 'Pomme de terre', 'Fromage', 'Crème fraiche', 'sel', 'poivre', 'Beurre', NULL, NULL, NULL, NULL, 3, 4, 3, 4, 4, 5, 0, 0, 0, 0, 0, 0),
+(4, 2, 'Pâtes', 'Concentré de tomates', 'crème fraiche', 'Viande hachés', 'sel', NULL, NULL, NULL, NULL, NULL, 4, 3, 4, 3, 3, 4, 0, 0, 0, 0, 0, 0),
+(5, 3, 'Noodles', 'Poulet', 'Sauce teriyaki', 'poivrons', 'sel', NULL, NULL, NULL, NULL, NULL, 5, 2, 5, 2, 2, 8, 15, 6, 15, 6, 6, 24),
+(6, 2, 'Pâte à pain', 'Sauce tomates', 'Viande hachés', 'poivre', 'sel', NULL, NULL, NULL, NULL, NULL, 6, 1, 6, 1, 1, 1, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
