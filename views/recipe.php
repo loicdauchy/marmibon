@@ -1,5 +1,3 @@
-<?php $title = 'Recette'; ?>
-
 <?php ob_start(); ?>
  
  
@@ -127,7 +125,7 @@
         </div>
     </div>
 
-
+    <?php $title = $recipe['Name_recette']; ?>
     <?php $content = ob_get_clean(); ?>
 
 <?php require('templates/template.php'); ?>

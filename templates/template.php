@@ -15,16 +15,6 @@
     <!-- Favicon -->
     <link rel="icon" href="public/img/core-img/favicon.ico">
 
-
-    <link rel="stylesheet" href="public/css/animate.css">
-    <link rel="stylesheet" href="public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/css/classy-nav.min.css">
-    <link rel="stylesheet" href="public/css/custom-icon.css">
-    <link rel="stylesheet" href="public/css/font-awesome.min.css">
-    <link rel="stylesheet" href="public/css/magnific-popup.css">
-    <link rel="stylesheet" href="public/css/nice-select.min.css">
-    <link rel="stylesheet" href="public/css/owl.carousel.min.css">
-    
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="public/css/style.css">
 
@@ -47,9 +37,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <form action="#" method="post">
-                        <input type="search" name="search" placeholder="Type any keywords...">
-                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <form action="" method="post">
+                        <input type="search" name="ingredient1" placeholder="Type any keywords...">
+                        <button type="submit" name="selectrecipe" value="recherche"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </form>
                 </div>
             </div>
@@ -69,7 +59,7 @@
                             <div id="breakingNewsTicker" class="ticker">
                                 <ul>
                                     <li><a href="#">Hello World!</a></li>
-                                    <li><a href="#">Welcome to Colorlib Family.</a></li>
+                                    <li><a href="#">Welcome to Marmibon Family.</a></li>
                                     <li><a href="#">Hello Delicious!</a></li>
                                 </ul>
                             </div>
@@ -117,9 +107,8 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="<?='?home'?>">Home</a></li>                                  
-                                    <li><a href="<?='?recipeID=1'?>">Recette</a></li>                                   
-                                    <li><a href="<?='?recipes'?>">Toute nos recette</a></li>
+                                    <li class="active"><a href="<?='?home'?>">Home</a></li>                                                                     
+                                    <li><a href="<?='?recipes'?>">Nos recette</a></li>
                                     <li><a href="<?='?dayRecipes'?>">Recette du jour</a></li>
                                 </ul>
 

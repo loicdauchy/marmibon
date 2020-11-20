@@ -2,37 +2,64 @@
 require('models/model.php');
 
 
-function testView()
-{
+/**
+ * homeView
+ * HOME PAGE CONTROLLER
+ * @return void
+ */
+function homeView(){
     require('views/home.php');
 }
 
+/**
+ * recipes
+ * RECIPES PAGE CONTROLLER
+ * @return void
+ */
 function recipes(){
     $allRecipe = new Recette();
     $allRecipe = $allRecipe->recettes();
     require('views/recipes.php');
 }
 
+/**
+ * singleRecipe
+ * SINGLE RECIPES PAGE CONTROLLER
+ * @return void
+ */
 function singleRecipe(){
     $recipe = new Recette();
     $recipe = $recipe->recipe($_GET['recipeID']);
+
     $ingredient = new Recette();
     $ingredient = $ingredient->ingredient($_GET['recipeID']);
+
     $tquantity = new Recette();
     $tquantity = $tquantity->tquantity($_GET['recipeID']);
+
     $bquantity = new Recette();
     $bquantity = $bquantity->bquantity($_GET['recipeID']);
+
     $qid = new Recette();
     $qid = $qid->qid($_GET['recipeID']);
+
     $change = new Recette();
     $change = $change->change();
+
     $directive = new Recette();
     $directive = $directive->directive($_GET['recipeID']);
+
     $service = new Recette();
     $service = $service->service($_GET['recipeID']);
+    
     require('views/recipe.php');
 }
 
+/**
+ * randRecipe
+ * RECIPEDAY PAGE CONTROLLER
+ * @return void
+ */
 function randRecipe(){
     $RandRecipe = new Recette();
     $RandRecipe = $RandRecipe->daysRecipe();
@@ -47,10 +74,25 @@ function randRecipe(){
     require('views/recipesday.php');
 }
 
+/**
+ * search
+ * SEARCH PAGE CONTROLLER
+ * @return void
+ */
 function search(){
-
     $search = new Recette();
     $search = $search->searchR();
     require('views/selectrecipe.php');
+}
+
+/**
+ * searchRR
+ * SEARCH PAGE 2 CONTROLLER
+ * @return void
+ */
+function searchRR(){
+    $searchine = new Recette();
+    $searchine = $searchine->searchI();
+    require('views/selectrecipes.php');
 }
 
