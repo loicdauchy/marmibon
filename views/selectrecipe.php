@@ -21,7 +21,7 @@
                             <input type="search" name="Ingredient2" placeholder="j'aime">
                         </div>
                         <div class="col-12 col-lg-3">
-                            <input type="search" name="search" placeholder="j'aime pas ">
+                            <input type="search" name="Ingredient3" placeholder="j'aime pas ">
                         </div>
                         <div class="col-12 col-lg-3 text-right">
                             <button type="submit" name="selectrecipe" value="recherche"

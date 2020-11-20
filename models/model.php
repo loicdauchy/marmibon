@@ -224,17 +224,33 @@ class Recette extends Databases{
       if (isset($_POST['selectrecipes']) && !empty($_POST['Ingredient1']))
       {
       $queryy=preg_replace("#[^a-zA-Z ?0-9]#i", "" ,$_POST['Ingredient1']);
+      $queryy2=preg_replace("#[^a-zA-Z ?0-9]#i", "" ,$_POST['Ingredient2']);
+      $queryy3=preg_replace("#[^a-zA-Z ?0-9]#i", "" ,$_POST['Ingredient3']);
       // $queryCases = array("with_any_one_of","with_the_exact_of","without","starts_with");
       //if(in_array($k,$queryCases)) {
       
-      $recettes = $this->connect()->prepare('SELECT ing1_ingredient, ing2_ingredient, ing3_ingredient, ing4_ingredient, Name_recette, img_recette,Id_recette 
-      FROM ingredient INNER JOIN recette on recette.Name_recette=recette.Name_recette WHERE ing1_ingredient LIKE ? or ing2_ingredient Like ? or ing3_ingredient Like ? or ing4_ingredient Like ?
-
+      $recettes = $this->connect()->prepare('SELECT
+      ing1_ingredient,
+      ing2_ingredient,
+      ing3_ingredient,
+      Name_recette,
+      img_recette,
+      Id_recette
+      FROM
+      ingredient
+      INNER JOIN recette ON recette.Id_Ingredient = ingredient.Id_recette_ingredient
+      WHERE
+      ing1_ingredient=? and ing2_ingredient=? and ing3_ingredient=?
+      
       
       ');
       
       
-      $recettes->execute(array($queryy, $queryy,$queryy,$queryy));
+      
+      
+      $recettes->execute(array($queryy, $queryy2,$queryy3));
+      $recettes->debugDumpParams();
+      
       $recettes = $recettes->fetchAll(PDO::FETCH_ASSOC);
       
       
@@ -242,5 +258,5 @@ class Recette extends Databases{
       
       }
       
-   }
+      }
 }

@@ -50,7 +50,7 @@
                             <input type="search" name="Ingredient2" placeholder="Ingrédient">
                         </div>
                         <div class="col-12 col-lg-3">
-                            <input type="search" name="search" placeholder="Ingrédient">
+                            <input type="search" name="Ingredient3" placeholder="Ingrédient">
                         </div>
                         <div class="col-12 col-lg-3 text-right">
                             <button type="submit" name="selectrecipes" value="recherche"
