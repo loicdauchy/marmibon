@@ -163,6 +163,7 @@ class Recette extends Databases{
         $tqty4 = $srv * $bqty4;
         $tqty5 = $srv * $bqty5;
         $tqty6 = $srv * $bqty6;
+
             
         $change = $this->connect()->prepare('UPDATE ingredient SET srv = :srv, tqty1 = :tqty1, tqty2 = :tqty2, tqty3 = :tqty3,
         tqty4 = :tqty4, tqty5 = :tqty5, tqty6 = :tqty6 
@@ -190,7 +191,7 @@ class Recette extends Databases{
       */
      public function directive($recipeID){
         $recette = $this->connect()->prepare('SELECT dir1_directive, dir2_directive, dir3_directive, dir4_directive, dir5_directive,
-        dir6_directive FROM directive WHERE Id_recette_directive='.$recipeID.'');
+        dir6_directive, dir7_directive, dir8_directive, dir9_directive, dir10_directive FROM directive WHERE Id_recette_directive='.$recipeID.'');
         $recette->execute();
         $result = $recette->fetch(PDO::FETCH_ASSOC);
         return $result;
@@ -249,7 +250,6 @@ class Recette extends Databases{
       
       
       $recettes->execute(array($queryy, $queryy2,$queryy3));
-      $recettes->debugDumpParams();
       
       $recettes = $recettes->fetchAll(PDO::FETCH_ASSOC);
       

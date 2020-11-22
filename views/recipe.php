@@ -52,6 +52,7 @@
                         <!-- Single Preparation Step -->
                         <?php
                             foreach($directive as $dir){
+                                if( $dir != NULL ){
                         ?>
                         <div class="single-preparation-step d-flex">
                 
@@ -59,6 +60,7 @@
                         </div>
 
                         <?php
+                                }
                             }
                         ?>
                     </div>
@@ -68,7 +70,7 @@
                         <div class="ingredients">
                             <h4>Ingrédients:</h4>
 
-                            <form action="" method="POST" class="d-flex flex-column w-75">
+                            <form action="" method="POST" class="d-flex flex-column w-100">
                             <input style="border:1px solid #ba3753; color:#ba3753;height:40px;font-size:1.5rem" type="number" name="srv" value="<?=$service['srv']?>">
                             <button class="btn btn-success" style="background:#ba3753 !important; border:none;" type="submit" value="ajouter" name="action">Changer</button>
                             
@@ -92,21 +94,30 @@
                             </form>
                             
                             
-                            <h4 class="tqty" style="display:flex; flex-direction:column; width:50px; color:#ba3753;">
+                            <h4 class="tqty" style="display:flex; flex-direction:column; width:100px; color:#ba3753;">
                             <?php
-                                foreach($tquantity as $tqty){                                        
+                                foreach($tquantity as $tqty){
+                                    if( $tqty != 0 ){                                       
                             ?>                            
                                 <?= $tqty."<br>"?>
-                            <?php 
+                            <?php
+                                }
                             }
                             ?>
                             </h4>
-                            <h4 style="display:flex; flex-direction:column;">
+                            <h4 style="display:flex; flex-direction:column; width:500px">
                             <?php
-                               foreach($ingredient as $ing){                               
+
+                                foreach( $ingredient as $ing ){
+                                    if( $ing != NULL ){
+                                                            
                             ?>                            
-                               <?= $ing."<br>"?>                     
+                               <?= $ing."<br>"?>
+                              
+                   
                             <?php
+                             
+                                    }
                                 }
                             ?>
                             </h4>
