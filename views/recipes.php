@@ -24,10 +24,10 @@
                             <input type="search" name="Recette" placeholder="Recette">
                         </div>
                         <div class="col-12 col-lg-3">
-                            <input type="search" name="j'aime" placeholder="j'aime">
+                            <input type="search" name="ilike" placeholder="j'aime">
                         </div>
                         <div class="col-12 col-lg-3">
-                            <input type="search" name="j'aime pas" placeholder="j'aime pas ">
+                            <input type="search" name="idontlike" placeholder="j'aime pas ">
                         </div>
                         <div class="col-12 col-lg-3 text-right">
                             <button type="submit" name="selectrecipe" value="recherche"

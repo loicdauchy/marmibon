@@ -203,16 +203,76 @@ class Recette extends Databases{
       * @return void
       */
      public function searchR(){
-        if (isset($_POST['selectrecipe']) && !empty($_POST['Recette'])){
-        $query=preg_replace("#[^a-zA-Z ?0-9]#i", "" ,$_POST['Recette']);
-        // $queryCases = array("with_any_one_of","with_the_exact_of","without","starts_with");
-        //if(in_array($k,$queryCases)) {      
-        $recette = $this->connect()->prepare('SELECT Name_recette,img_recette,Id_recette FROM recette WHERE Name_recette LIKE ?');      
-        $recette->execute(array($query));
-        $recette = $recette->fetchAll(PDO::FETCH_ASSOC);        
-        return $recette;       
-        }       
-    }
+      $recherche = isset($_POST['Recette']) ? $_POST['Recette'] : '';
+      $ilike = isset($_POST['ilike']) ? $_POST['ilike'] : '';
+      $idontlike = isset($_POST['idontlike']) ? $_POST['idontlike'] : '';
+         if($recherche && $ilike && $idontlike){
+            $q = $this->connect()->prepare(
+            "SELECT Name_recette,img_recette,Id_recette,ing1_ingredient,ing2_ingredient, 
+            ing3_ingredient,ing4_ingredient,ing5_ingredient,ing6_ingredient FROM ingredient
+            INNER JOIN recette ON recette.Id_Ingredient = ingredient.Id_recette_ingredient
+            WHERE Name_recette LIKE '%$recherche%'
+            OR ing1_ingredient LIKE '%$ilike%' OR ing2_ingredient LIKE '%$ilike%'
+            OR ing3_ingredient LIKE '%$ilike%' OR ing4_ingredient LIKE '%$ilike%'
+            OR ing5_ingredient LIKE '%$ilike%' OR ing6_ingredient LIKE '%$ilike%'
+            AND ing1_ingredient NOT LIKE '%$idontlike%' AND ing2_ingredient NOT LIKE '%$idontlike%'
+            AND ing3_ingredient NOT LIKE '%$idontlike%' AND ing4_ingredient NOT LIKE '%$idontlike%'
+            AND ing5_ingredient NOT LIKE '%$idontlike%' AND ing6_ingredient NOT LIKE '%$idontlike%'
+            LIMIT 10");
+            $q->execute();
+            $q = $q->fetchALL(PDO::FETCH_ASSOC);
+            return $q;
+         }else if($recherche && $ilike && empty($_POST['idontlike'])){
+            $q = $this->connect()->prepare(
+               "SELECT Name_recette,img_recette,Id_recette,ing1_ingredient,ing2_ingredient, 
+               ing3_ingredient,ing4_ingredient,ing5_ingredient,ing6_ingredient FROM ingredient
+               INNER JOIN recette ON recette.Id_Ingredient = ingredient.Id_recette_ingredient
+               WHERE Name_recette LIKE '%$recherche%'
+               OR ing1_ingredient LIKE '%$ilike%' OR ing2_ingredient LIKE '%$ilike%'
+               OR ing3_ingredient LIKE '%$ilike%' OR ing4_ingredient LIKE '%$ilike%'
+               OR ing5_ingredient LIKE '%$ilike%' OR ing6_ingredient LIKE '%$ilike%'
+               LIMIT 10");
+               $q->execute();
+               $q = $q->fetchALL(PDO::FETCH_ASSOC);
+               return $q;
+         }else if($recherche && empty($_POST['ilike']) && $idontlike){
+            $q = $this->connect()->prepare(
+               "SELECT Name_recette,img_recette,Id_recette,ing1_ingredient,ing2_ingredient, 
+               ing3_ingredient,ing4_ingredient,ing5_ingredient,ing6_ingredient FROM ingredient
+               INNER JOIN recette ON recette.Id_Ingredient = ingredient.Id_recette_ingredient
+               WHERE Name_recette LIKE '%$recherche%'
+               AND ing1_ingredient NOT LIKE '%$idontlike%' AND ing2_ingredient NOT LIKE '%$idontlike%'
+               AND ing3_ingredient NOT LIKE '%$idontlike%' AND ing4_ingredient NOT LIKE '%$idontlike%'
+               AND ing5_ingredient NOT LIKE '%$idontlike%' AND ing6_ingredient NOT LIKE '%$idontlike%'
+               LIMIT 10");
+               $q->execute();
+               $q = $q->fetchALL(PDO::FETCH_ASSOC);
+               return $q;
+         }else if($recherche && empty($_POST['ilike']) && empty($_POST['idontlike'])){
+            $q = $this->connect()->prepare(
+               "SELECT Name_recette,img_recette,Id_recette,ing1_ingredient,ing2_ingredient, 
+               ing3_ingredient,ing4_ingredient,ing5_ingredient,ing6_ingredient FROM ingredient
+               INNER JOIN recette ON recette.Id_Ingredient = ingredient.Id_recette_ingredient
+               WHERE Name_recette LIKE '%$recherche%'
+               LIMIT 10");
+               $q->execute();
+               $q = $q->fetchALL(PDO::FETCH_ASSOC);
+               return $q;
+         }else if(empty($_POST['recherche']) && empty($_POST['ilike']) && $idontlike){
+            $q = $this->connect()->prepare(
+               "SELECT Name_recette,img_recette,Id_recette,ing1_ingredient,ing2_ingredient, 
+               ing3_ingredient,ing4_ingredient,ing5_ingredient,ing6_ingredient FROM ingredient
+               INNER JOIN recette ON recette.Id_Ingredient = ingredient.Id_recette_ingredient
+               WHERE Name_recette LIKE '%$recherche%'
+               AND ing1_ingredient NOT LIKE '%$idontlike%' AND ing2_ingredient NOT LIKE '%$idontlike%'
+               AND ing3_ingredient NOT LIKE '%$idontlike%' AND ing4_ingredient NOT LIKE '%$idontlike%'
+               AND ing5_ingredient NOT LIKE '%$idontlike%' AND ing6_ingredient NOT LIKE '%$idontlike%'
+               LIMIT 10");
+               $q->execute();
+               $q = $q->fetchALL(PDO::FETCH_ASSOC);
+               return $q;
+         }             
+      }
     
     /**
      * searchI
@@ -220,45 +280,88 @@ class Recette extends Databases{
      * @return void
      */
     public function searchI(){
+      $Ingredient1 = isset($_POST['Ingredient1']) ? $_POST['Ingredient1'] : '';
+      $Ingredient2 = isset($_POST['Ingredient2']) ? $_POST['Ingredient2'] : '';
+      $Ingredient3 = isset($_POST['Ingredient3']) ? $_POST['Ingredient3'] : '';
 
+      if($Ingredient1 && $Ingredient2 && $Ingredient3){
+         $q = $this->connect()->prepare(
+            "SELECT Name_recette,img_recette,Id_recette,ing1_ingredient,ing2_ingredient, 
+            ing3_ingredient,ing4_ingredient,ing5_ingredient,ing6_ingredient FROM ingredient
+            INNER JOIN recette ON recette.Id_Ingredient = ingredient.Id_recette_ingredient
+            WHERE
+            ing1_ingredient LIKE '%$Ingredient1%' OR ing2_ingredient LIKE '%$Ingredient1%'
+            OR ing3_ingredient LIKE '%$Ingredient1%' OR ing4_ingredient LIKE '%$Ingredient1%'
+            OR ing5_ingredient LIKE '%$Ingredient1%' OR ing6_ingredient LIKE '%$Ingredient1%'
+            OR ing1_ingredient LIKE '%$Ingredient2%' OR ing2_ingredient LIKE '%$Ingredient2%'
+            OR ing3_ingredient LIKE '%$Ingredient2%' OR ing4_ingredient LIKE '%$Ingredient2%'
+            OR ing5_ingredient LIKE '%$Ingredient2%' OR ing6_ingredient LIKE '%$Ingredient2%'
+            OR ing1_ingredient LIKE '%$Ingredient3%' OR ing2_ingredient LIKE '%$Ingredient3%'
+            OR ing3_ingredient LIKE '%$Ingredient3%' OR ing4_ingredient LIKE '%$Ingredient3%'
+            OR ing5_ingredient LIKE '%$Ingredient3%' OR ing6_ingredient LIKE '%$Ingredient3%'
+            LIMIT 10");
+            $q->execute();
+            $q = $q->fetchALL(PDO::FETCH_ASSOC);
+            return $q;
+      }else if($Ingredient1 && $Ingredient2 && empty($_POST['Ingredient3'])){
+         $q = $this->connect()->prepare(
+            "SELECT Name_recette,img_recette,Id_recette,ing1_ingredient,ing2_ingredient, 
+            ing3_ingredient,ing4_ingredient,ing5_ingredient,ing6_ingredient FROM ingredient
+            INNER JOIN recette ON recette.Id_Ingredient = ingredient.Id_recette_ingredient
+            WHERE
+            ing1_ingredient LIKE '%$Ingredient1%' OR ing2_ingredient LIKE '%$Ingredient1%'
+            OR ing3_ingredient LIKE '%$Ingredient1%' OR ing4_ingredient LIKE '%$Ingredient1%'
+            OR ing5_ingredient LIKE '%$Ingredient1%' OR ing6_ingredient LIKE '%$Ingredient1%'
+            OR ing1_ingredient LIKE '%$Ingredient2%' OR ing2_ingredient LIKE '%$Ingredient2%'
+            OR ing3_ingredient LIKE '%$Ingredient2%' OR ing4_ingredient LIKE '%$Ingredient2%'
+            OR ing5_ingredient LIKE '%$Ingredient2%' OR ing6_ingredient LIKE '%$Ingredient2%'
+            LIMIT 10");
+            $q->execute();
+            $q = $q->fetchALL(PDO::FETCH_ASSOC);
+            return $q;
+      }else if($Ingredient1 && empty($_POST['Ingredient2']) && empty($_POST['Ingredient3'])){
+         $q = $this->connect()->prepare(
+            "SELECT Name_recette,img_recette,Id_recette,ing1_ingredient,ing2_ingredient, 
+            ing3_ingredient,ing4_ingredient,ing5_ingredient,ing6_ingredient FROM ingredient
+            INNER JOIN recette ON recette.Id_Ingredient = ingredient.Id_recette_ingredient
+            WHERE
+            ing1_ingredient LIKE '%$Ingredient1%' OR ing2_ingredient LIKE '%$Ingredient1%'
+            OR ing3_ingredient LIKE '%$Ingredient1%' OR ing4_ingredient LIKE '%$Ingredient1%'
+            OR ing5_ingredient LIKE '%$Ingredient1%' OR ing6_ingredient LIKE '%$Ingredient1%'
+            LIMIT 10");
+            $q->execute();
+            $q = $q->fetchALL(PDO::FETCH_ASSOC);
+            return $q;
+      }else if(empty($_POST['Ingredient1']) && $Ingredient2 && empty($_POST['Ingredient3'])){
+         $q = $this->connect()->prepare(
+            "SELECT Name_recette,img_recette,Id_recette,ing1_ingredient,ing2_ingredient, 
+            ing3_ingredient,ing4_ingredient,ing5_ingredient,ing6_ingredient FROM ingredient
+            INNER JOIN recette ON recette.Id_Ingredient = ingredient.Id_recette_ingredient
+            WHERE
+            ing1_ingredient LIKE '%$Ingredient2%' OR ing2_ingredient LIKE '%$Ingredient2%'
+            OR ing3_ingredient LIKE '%$Ingredient2%' OR ing4_ingredient LIKE '%$Ingredient2%'
+            OR ing5_ingredient LIKE '%$Ingredient2%' OR ing6_ingredient LIKE '%$Ingredient2%'
+            LIMIT 10");
+            $q->execute();
+            $q = $q->fetchALL(PDO::FETCH_ASSOC);
+            return $q;
+      }else if(empty($_POST['Ingredient1']) && empty($_POST['Ingredient2']) && $Ingredient3){
+         $q = $this->connect()->prepare(
+            "SELECT Name_recette,img_recette,Id_recette,ing1_ingredient,ing2_ingredient, 
+            ing3_ingredient,ing4_ingredient,ing5_ingredient,ing6_ingredient FROM ingredient
+            INNER JOIN recette ON recette.Id_Ingredient = ingredient.Id_recette_ingredient
+            WHERE
+            ing1_ingredient LIKE '%$Ingredient3%' OR ing2_ingredient LIKE '%$Ingredient3%'
+            OR ing3_ingredient LIKE '%$Ingredient3%' OR ing4_ingredient LIKE '%$Ingredient3%'
+            OR ing5_ingredient LIKE '%$Ingredient3%' OR ing6_ingredient LIKE '%$Ingredient3%'
+            LIMIT 10");
+            $q->execute();
+            $q = $q->fetchALL(PDO::FETCH_ASSOC);
+            return $q;
+      }else{
 
-      if (isset($_POST['selectrecipes']) && !empty($_POST['Ingredient1']))
-      {
-      $queryy=preg_replace("#[^a-zA-Z ?0-9]#i", "" ,$_POST['Ingredient1']);
-      $queryy2=preg_replace("#[^a-zA-Z ?0-9]#i", "" ,$_POST['Ingredient2']);
-      $queryy3=preg_replace("#[^a-zA-Z ?0-9]#i", "" ,$_POST['Ingredient3']);
-      // $queryCases = array("with_any_one_of","with_the_exact_of","without","starts_with");
-      //if(in_array($k,$queryCases)) {
-      
-      $recettes = $this->connect()->prepare('SELECT
-      ing1_ingredient,
-      ing2_ingredient,
-      ing3_ingredient,
-      Name_recette,
-      img_recette,
-      Id_recette
-      FROM
-      ingredient
-      INNER JOIN recette ON recette.Id_Ingredient = ingredient.Id_recette_ingredient
-      WHERE
-      ing1_ingredient=? and ing2_ingredient=? and ing3_ingredient=?
-      
-      
-      ');
-      
-      
-      
-      
-      $recettes->execute(array($queryy, $queryy2,$queryy3));
-      
-      $recettes = $recettes->fetchAll(PDO::FETCH_ASSOC);
-      
-      
-      return $recettes;
-      
       }
-      
-      }
+   }
       
       /**
        * likke

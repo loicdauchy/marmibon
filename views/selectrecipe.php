@@ -9,51 +9,6 @@
                 </div>
             </div>
         </div>
-        <div class="receipe-post-search mb-80">
-            <div class="container">
-                <h4>Recherche par <span style="color: #ba3753;">Recette</span> :</h4>
-                <form action="<?='?selectrecipe'?>" method="post">
-                    <div class="row">
-                        <div class="col-12 col-lg-3">
-                            <input type="search" name="Ingredient1" placeholder="Recette">
-                        </div>
-                        <div class="col-12 col-lg-3">
-                            <input type="search" name="Ingredient2" placeholder="j'aime">
-                        </div>
-                        <div class="col-12 col-lg-3">
-                            <input type="search" name="Ingredient3" placeholder="j'aime pas ">
-                        </div>
-                        <div class="col-12 col-lg-3 text-right">
-                            <button type="submit" name="selectrecipe" value="recherche"
-                                class="btn delicious-btn">Chercher</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="receipe-post-search mb-80">
-            <div class="container">
-                <h4>Recherche par <span style="color: #ba3753;">Ingrédients</span> :</h4>
-                <form action="<?='?selectrecipe'?>" method="post">
-                    <div class="row">
-                        <div class="col-12 col-lg-3">
-                            <input type="search" name="Ingredient1" placeholder="Ingrédient">
-                        </div>
-                        <div class="col-12 col-lg-3">
-                            <input type="search" name="Ingredient2" placeholder="Ingrédient">
-                        </div>
-                        <div class="col-12 col-lg-3">
-                            <input type="search" name="search" placeholder="Ingrédient">
-                        </div>
-                        <div class="col-12 col-lg-3 text-right">
-                            <button type="submit" name="selectrecipe" value="recherche"
-                                class="btn delicious-btn">Chercher</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
 
         <div class="row">
             <!-- Single Best Receipe Area -->
