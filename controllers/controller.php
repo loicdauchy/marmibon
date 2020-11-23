@@ -60,6 +60,12 @@ function singleRecipe(){
 
     $service = new Recette();
     $service = $service->service($_GET['recipeID']);
+
+    $slike = new Recette();
+    $slike = $slike->likke($_GET['recipeID']);
+
+    $dislike = new Recette();
+    $dislike = $dislike->dislikke($_GET['recipeID']);
     
     require('views/recipe.php');
 }

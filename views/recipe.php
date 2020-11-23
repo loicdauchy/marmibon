@@ -18,12 +18,22 @@
     <div class="receipe-post-area section-padding-80">
 
         <!-- Receipe Slider -->
-        <div class="container">
+        <div class="container" id="like">
             <div class="row">
                 <div class="col-12">
                     <div class="receipe-slider owl-carousel">
                         <img style="height:60vh;" src="<?=$recipe['img_recette']?>" alt="">
                     </div>
+                    <h4><?=$recipe['likes']?> likes</h4>
+                    <form action="" method="POST">
+                    <button onclick='window.location.hash="like"'; type="submit" name="like" value="1" class="btn btn-info btn-lg" id="like">
+                    <i class="fa fa-thumbs-up"></i>
+                    </button>
+                    <h4><?=$recipe['dislikes']?> dislikes</h4>
+                    <button onclick='window.location.hash="like"'; type="submit" name="dislike" value="1" class="btn btn-danger btn-lg">
+                    <i class="fa fa-thumbs-down"></i>
+                    </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -70,9 +80,9 @@
                         <div class="ingredients">
                             <h4>Ingrédients:</h4>
 
-                            <form action="" method="POST" class="d-flex flex-column w-100">
+                            <form id="change" action="" method="POST" class="d-flex flex-column w-100">
                             <input style="border:1px solid #ba3753; color:#ba3753;height:40px;font-size:1.5rem" type="number" name="srv" value="<?=$service['srv']?>">
-                            <button class="btn btn-success" style="background:#ba3753 !important; border:none;" type="submit" value="ajouter" name="action">Changer</button>
+                            <button onclick='window.location.hash="change"'; class="btn btn-success" style="background:#ba3753 !important; border:none;" type="submit" value="ajouter" name="action">Changer</button>
                             
                             <div style="display:flex;">
                             <!-- Custom Checkbox -->

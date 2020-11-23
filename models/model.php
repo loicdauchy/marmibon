@@ -259,4 +259,38 @@ class Recette extends Databases{
       }
       
       }
+      
+      /**
+       * likke
+       * INCREMENTE LIKE
+       * @param  mixed $recipeID
+       * @return void
+       */
+      public function likke($recipeID){   
+         if(isset($_POST['like']) && $_POST['like']=="1"){
+            $delai = 0.1;
+            $recette = $this->connect()->prepare('UPDATE recette SET likes = likes + 1 WHERE Id_recette ='.$recipeID.'');
+            $recette->execute();
+            $recette = header("Refresh:$delai;");                 
+            return $recette;
+            }
+      }
+
+            /**
+       * likke
+       * INCREMENTE DISLIKE
+       * @param  mixed $recipeID
+       * @return void
+       */
+      public function dislikke($recipeID){   
+         if(isset($_POST['dislike']) && $_POST['dislike']=="1"){
+            $delai = 0.1;
+            $recette = $this->connect()->prepare('UPDATE recette SET dislikes = dislikes + 1 WHERE Id_recette ='.$recipeID.'');
+            $recette->execute();
+            $recette = header("Refresh:$delai;");                 
+            return $recette;
+            }
+      }
+
+
 }

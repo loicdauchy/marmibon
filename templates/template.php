@@ -169,6 +169,10 @@
     <script src="public/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="public/js/active.js"></script>
+
+    <script>
+
+    </script>
     
 
 </body>
