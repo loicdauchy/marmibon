@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 22 nov. 2020 à 21:33
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Généré le :  mar. 24 nov. 2020 à 16:25
+-- Version du serveur :  10.4.10-MariaDB
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `marmibon`
+-- Base de données :  `marmibon`
 --
 
 -- --------------------------------------------------------
@@ -30,16 +31,16 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `directive`;
 CREATE TABLE IF NOT EXISTS `directive` (
   `Id_recette_directive` bigint(255) NOT NULL,
-  `dir1_directive` text,
-  `dir2_directive` text,
-  `dir3_directive` text,
-  `dir4_directive` text,
-  `dir5_directive` text,
-  `dir6_directive` text,
-  `dir7_directive` text,
-  `dir8_directive` text,
-  `dir9_directive` text,
-  `dir10_directive` text,
+  `dir1_directive` text DEFAULT NULL,
+  `dir2_directive` text DEFAULT NULL,
+  `dir3_directive` text DEFAULT NULL,
+  `dir4_directive` text DEFAULT NULL,
+  `dir5_directive` text DEFAULT NULL,
+  `dir6_directive` text DEFAULT NULL,
+  `dir7_directive` text DEFAULT NULL,
+  `dir8_directive` text DEFAULT NULL,
+  `dir9_directive` text DEFAULT NULL,
+  `dir10_directive` text DEFAULT NULL,
   PRIMARY KEY (`Id_recette_directive`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -96,13 +97,14 @@ CREATE TABLE IF NOT EXISTS `ingredient` (
 --
 
 INSERT INTO `ingredient` (`Id_recette_ingredient`, `srv`, `ing1_ingredient`, `ing2_ingredient`, `ing3_ingredient`, `ing4_ingredient`, `ing5_ingredient`, `ing6_ingredient`, `ing7_ingredient`, `ing8_ingredient`, `ing9_ingredient`, `ing10_ingredient`, `qty1`, `qty2`, `qty3`, `qty4`, `qty5`, `qty6`, `tqty1`, `tqty2`, `tqty3`, `tqty4`, `tqty5`, `tqty6`) VALUES
-(1, 3, 'Pain', 'Steak', 'Ketchup', 'Chedar', '', NULL, NULL, NULL, NULL, NULL, '1.0', '6.0', '1.0', '6.0', '6.0', '5.0', '3.0', '18.0', '3.0', '18.0', '18.0', '15.0'),
-(2, 1, 'Pain', 'Saucisse', 'Oignons frit', 'Ketchup', 'Moutarde', NULL, NULL, NULL, NULL, NULL, '2.0', '5.0', '2.0', '5.0', '5.0', '3.0', '2.0', '5.0', '2.0', '5.0', '5.0', '3.0'),
+(1, 2, 'Pain', 'Steak', 'Ketchup', 'Chedar', '', NULL, NULL, NULL, NULL, NULL, '1.0', '6.0', '1.0', '6.0', '6.0', '5.0', '2.0', '12.0', '2.0', '12.0', '12.0', '10.0'),
+(2, 3, 'Pain', 'Saucisse', 'Oignons frit', 'Ketchup', 'Moutarde', NULL, NULL, NULL, NULL, NULL, '2.0', '5.0', '2.0', '5.0', '5.0', '3.0', '6.0', '15.0', '6.0', '15.0', '15.0', '9.0'),
 (3, 2, 'Pomme de terre', 'Fromage', 'Crème fraiche', 'sel', 'poivre', 'Beurre', NULL, NULL, NULL, NULL, '3.0', '4.0', '3.0', '4.0', '4.0', '5.0', '6.0', '8.0', '6.0', '8.0', '8.0', '10.0'),
 (4, 2, 'Pâtes', 'Concentré de tomates', 'crème fraiche', 'Viande hachés', 'sel', NULL, NULL, NULL, NULL, NULL, '4.0', '3.0', '4.0', '3.0', '3.0', '4.0', '8.0', '6.0', '8.0', '6.0', '6.0', '8.0'),
-(5, 3, 'Noodles', 'Poulet', 'Sauce teriyaki', 'poivrons', 'sel', NULL, NULL, NULL, NULL, NULL, '5.0', '2.0', '5.0', '2.0', '2.0', '8.0', '15.0', '6.0', '15.0', '6.0', '6.0', '24.0'),
-(6, 4, 'Pâte à pain', 'Sauce tomates', 'Viande hachés', 'poivre', 'sel', NULL, NULL, NULL, NULL, NULL, '6.0', '1.0', '6.0', '1.0', '1.0', '1.0', '24.0', '4.0', '24.0', '4.0', '4.0', '4.0'),
-(7, 6, 'g de pralinoise', 'g de beurre ramolli', 'g de sucre en poudre\r\n', 'g de farine', 'oeufs', NULL, NULL, NULL, NULL, NULL, '33.0', '25.0', '25.0', '8.0', '0.5', NULL, '198.0', '150.0', '150.0', '48.0', '3.0', '0.0');
+(5, 2, 'Noodles', 'Poulet', 'Sauce teriyaki', 'poivrons', 'sel', NULL, NULL, NULL, NULL, NULL, '5.0', '2.0', '5.0', '2.0', '2.0', '8.0', '10.0', '4.0', '10.0', '4.0', '4.0', '16.0'),
+(6, 3, 'Pâte à pain', 'Sauce tomates', 'Viande hachés', 'poivre', 'sel', NULL, NULL, NULL, NULL, NULL, '6.0', '1.0', '6.0', '1.0', '1.0', '1.0', '18.0', '3.0', '18.0', '3.0', '3.0', '3.0'),
+(7, 8, 'g de pralinoise', 'g de beurre ramolli', 'g de sucre en poudre\r\n', 'g de farine', 'oeufs', NULL, NULL, NULL, NULL, NULL, '33.0', '25.0', '25.0', '8.0', '0.5', NULL, '264.0', '200.0', '200.0', '64.0', '4.0', '0.0'),
+(8, 4, 'trjrt', 'hreher', 'jrtjrt', 'hrehe', 'jtrjr', 'hrehe', NULL, NULL, NULL, NULL, '2.0', '2.0', '2.0', '2.0', '2.0', '2.0', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -114,28 +116,30 @@ DROP TABLE IF EXISTS `recette`;
 CREATE TABLE IF NOT EXISTS `recette` (
   `Id_recette` bigint(255) NOT NULL AUTO_INCREMENT,
   `Name_recette` varchar(255) DEFAULT NULL,
-  `img_recette` varchar(255) DEFAULT NULL,
+  `img_recette` blob DEFAULT NULL,
   `time_recette` varchar(255) DEFAULT NULL,
   `number_recette` bigint(255) DEFAULT NULL,
   `level_recette` varchar(255) DEFAULT NULL,
   `cost_recette` varchar(255) DEFAULT NULL,
-  `description_recette` text NOT NULL,
-  `Id_Ingredient` bigint(255) NOT NULL,
+  `description_recette` text DEFAULT NULL,
+  `Id_Ingredient` bigint(255) DEFAULT NULL,
+  `likes` int(255) DEFAULT NULL,
+  `dislikes` int(255) DEFAULT NULL,
   PRIMARY KEY (`Id_recette`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `recette`
 --
 
-INSERT INTO `recette` (`Id_recette`, `Name_recette`, `img_recette`, `time_recette`, `number_recette`, `level_recette`, `cost_recette`, `description_recette`, `Id_Ingredient`) VALUES
-(1, 'hamburger', 'public/img/bg-img/r1.jpg', '20 minutes', 2, 'Facile', '10.98 euros', 'Un hamburger est un sandwich composé de pain, de viande hachée cuite, de crudités et de sauce. ... Aujourd\'hui, en anglais (du moins en anglais américain)', 1),
-(2, 'Hot-Dog', 'public/img/bg-img/r2.jpg', '15 minutes', 4, 'Facile', '7.92 euros', 'Un hot-dog, hotdog ou hot dog, est un type de sandwich composé d\'un pain allongé (souvent brioché) fourré d\'une saucisse cuite.', 2),
-(3, 'Tartiflette', 'public/img/bg-img/r3.jpg', '50 minutes', 6, 'Moyen', '15.20 euros', 'La tartiflette est un plat d\'origine savoyarde qui se déguste généralement en hiver. Ses ingrédients principaux sont les pommes de terre et le reblochon, mais on peut aussi y ajouter des lardons et de la crème.', 3),
-(4, 'Lasagne', 'public/img/bg-img/r4.jpg', '40 minutes', 4, 'Moyen', '12.20 euros', 'Les lasagnes sont des pâtes alimentaires en forme de larges plaques. Il s\'agit également de la ... Voyez les conditions d\'utilisation pour plus de détails, ainsi que les crédits graphiques.', 4),
-(5, 'Poulet Teriyaki', 'public/img/bg-img/r5.jpg', '45 minutes', 2, 'Difficile', '17.10 euros', 'Le poulet teriyaki consiste à mariner et cuire du poulet dans de la sauce teriyaki, ce qui lui donne sa saveur, mais aussi un extérieur coloré.', 5),
-(6, 'Pizza', 'public/img/bg-img/r6.jpg', '30 minutes', 4, 'Facile', '8 euros', 'La pizza est une recette de cuisine traditionnelle de la cuisine italienne, originaire de Naples en Italie (cuisine napolitaine)', 6),
-(7, 'Brownie fondant praliné', 'public/img/bg-img/r7.jpg', '50 minutes', 1, 'Facile', '5 euros', 'Selon nos informations, cette recette est compatible avec le régime suivant : végétarien', 7);
+INSERT INTO `recette` (`Id_recette`, `Name_recette`, `img_recette`, `time_recette`, `number_recette`, `level_recette`, `cost_recette`, `description_recette`, `Id_Ingredient`, `likes`, `dislikes`) VALUES
+(1, 'hamburger', 0x7075626c69632f696d672f62672d696d672f72312e6a7067, '20 minutes', 2, 'Facile', '10.98 euros', 'Un hamburger est un sandwich composé de pain, de viande hachée cuite, de crudités et de sauce. ... Aujourd\'hui, en anglais (du moins en anglais américain)', 1, 5, 1),
+(2, 'Hot Dog', 0x7075626c69632f696d672f62672d696d672f72322e6a7067, '15 minutes', 4, 'Facile', '7.92 euros', 'Un hot-dog, hotdog ou hot dog, est un type de sandwich composé d\'un pain allongé (souvent brioché) fourré d\'une saucisse cuite.', 2, 12, 1),
+(3, 'Tartiflette', 0x7075626c69632f696d672f62672d696d672f72332e6a7067, '50 minutes', 6, 'Moyen', '15.20 euros', 'La tartiflette est un plat d\'origine savoyarde qui se déguste généralement en hiver. Ses ingrédients principaux sont les pommes de terre et le reblochon, mais on peut aussi y ajouter des lardons et de la crème.', 3, 1, 0),
+(4, 'Lasagne', 0x7075626c69632f696d672f62672d696d672f72342e6a7067, '40 minutes', 4, 'Moyen', '12.20 euros', 'Les lasagnes sont des pâtes alimentaires en forme de larges plaques. Il s\'agit également de la ... Voyez les conditions d\'utilisation pour plus de détails, ainsi que les crédits graphiques.', 4, 0, 1),
+(5, 'Poulet Teriyaki', 0x7075626c69632f696d672f62672d696d672f72352e6a7067, '45 minutes', 2, 'Difficile', '17.10 euros', 'Le poulet teriyaki consiste à mariner et cuire du poulet dans de la sauce teriyaki, ce qui lui donne sa saveur, mais aussi un extérieur coloré.', 5, 2, 0),
+(6, 'Pizza', 0x7075626c69632f696d672f62672d696d672f72362e6a7067, '30 minutes', 4, 'Facile', '8 euros', 'La pizza est une recette de cuisine traditionnelle de la cuisine italienne, originaire de Naples en Italie (cuisine napolitaine)', 6, 9, 1),
+(7, 'Brownie fondant praliné', 0x7075626c69632f696d672f62672d696d672f72372e6a7067, '50 minutes', 1, 'Facile', '5 euros', 'Selon nos informations, cette recette est compatible avec le régime suivant : végétarien', 7, 12, 3);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
