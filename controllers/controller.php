@@ -114,6 +114,12 @@ function searchRR(){
 function admin(){
     $admin=new Recette();
     $admin=$admin->admin();
+    $modifierI=new Recette();
+    $modifierI=$modifierI->modifierI();
+    $modifierD=new Recette();
+    $modifierD=$modifierD->modifierD();
+    $modifierR=new Recette();
+    $modifierR=$modifierR->modifierR();
     require ('views/admin.php');
 }
 

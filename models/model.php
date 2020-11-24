@@ -467,4 +467,110 @@ class Recette extends Databases{
          
       }
    }
+
+   public function modifierI(){
+
+      if(isset($_POST['action']) && $_POST['action']=="modifierI"){
+      
+      $modifier = $this->connect()->prepare('UPDATE ingredient SET
+      Id_recette_ingredient = :id,
+      srv = :srv,
+      ing1_ingredient = :ing1,
+      ing2_ingredient = :ing2,
+      ing3_ingredient = :ing3,
+      ing4_ingredient = :ing4,
+      ing5_ingredient = :ing5,
+      ing6_ingredient = :ing6,
+      qty1 = :qty1,
+      qty2 = :qty2,
+      qty3 = :qty3,
+      qty4 = :qty4,
+      qty5 = :qty5,
+      qty6 = :qty6
+      WHERE Id_recette_ingredient =:id
+      ');
+      $modifier->bindParam(':id', $_POST['idIngredient'], PDO::PARAM_STR);
+      $modifier->bindParam(':srv', $_POST['Service'], PDO::PARAM_STR);
+      $modifier->bindParam(':ing1', $_POST['ingredient'], PDO::PARAM_STR);
+      $modifier->bindParam(':ing2', $_POST['ingredient2'], PDO::PARAM_STR);
+      $modifier->bindParam(':ing3', $_POST['ingredient3'], PDO::PARAM_STR);
+      $modifier->bindParam(':ing4', $_POST['ingredient4'], PDO::PARAM_STR);
+      $modifier->bindParam(':ing5', $_POST['ingredient5'], PDO::PARAM_STR);
+      $modifier->bindParam(':ing6', $_POST['ingredient6'], PDO::PARAM_STR);
+      $modifier->bindParam(':qty1', $_POST['Quantity'], PDO::PARAM_STR);
+      $modifier->bindParam(':qty2', $_POST['Quantity2'], PDO::PARAM_STR);
+      $modifier->bindParam(':qty3', $_POST['Quantity3'], PDO::PARAM_STR);
+      $modifier->bindParam(':qty4', $_POST['Quantity4'], PDO::PARAM_STR);
+      $modifier->bindParam(':qty5', $_POST['Quantity5'], PDO::PARAM_STR);
+      $modifier->bindParam(':qty6', $_POST['Quantity6'], PDO::PARAM_STR);
+      $modifier = $modifier->execute();
+      return $modifier;
+   }
+ }
+
+ public function modifierD(){
+
+   if(isset($_POST['action']) && $_POST['action']=="modifierD"){
+   
+   $modifier = $this->connect()->prepare('UPDATE directive SET
+   Id_recette_directive  = :id,
+   dir1_directive = :dir1,
+   dir2_directive = :dir2,
+   dir3_directive = :dir3,
+   dir4_directive = :dir4,
+   dir5_directive = :dir5,
+   dir6_directive = :dir6,
+   dir7_directive = :dir7,
+   dir8_directive = :dir8,
+   dir9_directive = :dir9,
+   dir10_directive = :dir10
+   
+   WHERE Id_recette_directive =:id
+   ');
+   $modifier->bindParam(':id', $_POST['idDirective'], PDO::PARAM_STR);
+   $modifier->bindParam(':dir1', $_POST['dir1'], PDO::PARAM_STR);
+   $modifier->bindParam(':dir2', $_POST['dir2'], PDO::PARAM_STR);
+   $modifier->bindParam(':dir3', $_POST['dir3'], PDO::PARAM_STR);
+   $modifier->bindParam(':dir4', $_POST['dir4'], PDO::PARAM_STR);
+   $modifier->bindParam(':dir5', $_POST['dir5'], PDO::PARAM_STR);
+   $modifier->bindParam(':dir6', $_POST['dir6'], PDO::PARAM_STR);
+   $modifier->bindParam(':dir7', $_POST['dir7'], PDO::PARAM_STR);
+   $modifier->bindParam(':dir8', $_POST['dir8'], PDO::PARAM_STR);
+   $modifier->bindParam(':dir9', $_POST['dir9'], PDO::PARAM_STR);
+   $modifier->bindParam(':dir10', $_POST['dir10'], PDO::PARAM_STR);
+
+   $modifier = $modifier->execute();
+   return $modifier;
+}
+}
+
+public function modifierR(){
+
+   if(isset($_POST['action']) && $_POST['action']=="modifierR"){
+   
+   $modifier = $this->connect()->prepare('UPDATE recette SET
+   Id_recette   = :id,
+   Name_recette = :namer,
+   time_recette = :timer,
+   number_recette = :num,
+   level_recette = :lvl,
+   cost_recette = :cost,
+   description_recette = :descr,
+   Id_Ingredient = :idi
+ 
+   WHERE Id_recette =:id
+   ');
+   $modifier->bindParam(':id', $_POST['idRecette'], PDO::PARAM_STR);
+   $modifier->bindParam(':namer', $_POST['name'], PDO::PARAM_STR);
+   $modifier->bindParam(':timer', $_POST['time'], PDO::PARAM_STR);
+   $modifier->bindParam(':num', $_POST['number'], PDO::PARAM_STR);
+   $modifier->bindParam(':lvl', $_POST['level'], PDO::PARAM_STR);
+   $modifier->bindParam(':cost', $_POST['cost'], PDO::PARAM_STR);
+   $modifier->bindParam(':descr', $_POST['description'], PDO::PARAM_STR);
+   $modifier->bindParam(':idi', $_POST['idIngredient'], PDO::PARAM_STR);
+
+   $modifier = $modifier->execute();
+   return $modifier;
+}
+}
 }
