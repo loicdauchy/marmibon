@@ -112,6 +112,8 @@ function searchRR(){
 }
 
 function admin(){
+    $admin=new Recette();
+    $admin=$admin->admin();
     require ('views/admin.php');
 }
 

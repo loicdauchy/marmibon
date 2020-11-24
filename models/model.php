@@ -145,7 +145,7 @@ class Recette extends Databases{
       * @return void
       */
      public function change(){
-        if(isset($_POST['action']) && $_POST['action']=="ajouter" && !empty($_POST['srv'])) {
+        if(isset($_POST['action']) && $_POST['action']=="ajouter" && !empty($_POST['srv']) && !empty($_POST['srv'])) {
         $srv = $_POST['srv'];
         $qid = $_POST['qid'];
         $bqty = $_POST['bqty'];
@@ -396,4 +396,75 @@ class Recette extends Databases{
       }
 
 
+      public function admin(){
+
+         if(isset($_POST['action']) && $_POST['action']=="ajouter" && !empty($_POST['ingredient']) && !empty($_POST['ingredient2']) && !empty($_POST['ingredient3'])
+         && !empty($_POST['ingredient4']) && !empty($_POST['ingredient5']) && !empty($_POST['ingredient6'])
+         && !empty($_POST['Service']) && !empty($_POST['Quantity']) && !empty($_POST['Quantity2']) && !empty($_POST['Quantity3']) && !empty($_POST['Quantity4'])
+         && !empty($_POST['Quantity5']) && !empty($_POST['Quantity6']) && !empty($_POST['idIngredient'])){
+         echo "tot";
+         
+         $ajouter = $this->connect()->prepare('INSERT INTO ingredient(
+         Id_recette_ingredient,
+         srv,
+         ing1_ingredient,
+         ing2_ingredient,
+         ing3_ingredient,
+         ing4_ingredient,
+         ing5_ingredient,
+         ing6_ingredient,
+         qty1,
+         qty2,
+         qty3,
+         qty4,
+         qty5,
+         qty6
+         )
+         VALUES(:id,:srv,:ing1_ingredient,:ing2_ingredient,:ing3_ingredient,:ing4_ingredient,:ing5_ingredient,:ing6_ingredient,:qty1,:qty2,:qty3,:qty4,:qty5,:qty6)');
+         echo "toto";
+         $ajouter->bindParam(':id', $_POST['idIngredient'],
+         PDO::PARAM_STR);
+         $ajouter->bindParam(':srv', $_POST['Service'],
+         PDO::PARAM_STR);
+         $ajouter->bindParam(':ing1_ingredient', $_POST['ingredient'],
+         PDO::PARAM_STR);
+
+         $ajouter->bindParam(':ing2_ingredient', $_POST['ingredient2'],
+         PDO::PARAM_STR);
+
+         $ajouter->bindParam(':ing3_ingredient', $_POST['ingredient3'],
+         PDO::PARAM_STR);
+
+         $ajouter->bindParam(':ing4_ingredient', $_POST['ingredient4'],
+         PDO::PARAM_STR);
+
+         $ajouter->bindParam(':ing5_ingredient', $_POST['ingredient5'],
+         PDO::PARAM_STR);
+
+         $ajouter->bindParam(':ing6_ingredient', $_POST['ingredient6'],
+         PDO::PARAM_STR);
+
+         $ajouter->bindParam(':qty1', $_POST['Quantity'],
+         PDO::PARAM_STR);
+
+         $ajouter->bindParam(':qty2', $_POST['Quantity2'],
+         PDO::PARAM_STR);
+
+         $ajouter->bindParam(':qty3', $_POST['Quantity3'],
+         PDO::PARAM_STR);
+
+         $ajouter->bindParam(':qty4', $_POST['Quantity4'],
+         PDO::PARAM_STR);
+
+         $ajouter->bindParam(':qty5', $_POST['Quantity5'],
+         PDO::PARAM_STR);
+
+         $ajouter->bindParam(':qty6', $_POST['Quantity6'],
+         PDO::PARAM_STR);
+
+         
+         $estceokk = $ajouter->execute();
+         
+      }
+   }
 }
