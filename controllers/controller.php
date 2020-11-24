@@ -111,3 +111,7 @@ function searchRR(){
     require('views/selectrecipes.php');
 }
 
+function admin(){
+    require ('views/admin.php');
+}
+

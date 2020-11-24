@@ -13,6 +13,8 @@ if (isset($_GET['recipeID'])) {
                                         echo search();
                                             }else if (isset($_POST['selectrecipes'])){
                                                 echo searchRR();
+                                                }else if (isset($_GET['admin'])){
+                                                    echo admin();
                                                     }else{
                                                         echo homeView();
                                                         }

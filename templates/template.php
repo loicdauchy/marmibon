@@ -75,6 +75,8 @@
                             <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            <button style="position:relative; left:200px; opacity:0; cursor:default; "class="btn"><a style="cursor:default;" href="<?='?admin'?>">admin</a></button>
+                             
                         </div>
                     </div>
                 </div>
