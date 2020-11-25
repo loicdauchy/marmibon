@@ -403,11 +403,8 @@ class Recette extends Databases{
        */
       public function ajouterI(){
 
-         if(isset($_POST['action']) && $_POST['action']=="ajouter" && !empty($_POST['ingredient']) && !empty($_POST['ingredient2']) && !empty($_POST['ingredient3'])
-         && !empty($_POST['ingredient4']) && !empty($_POST['ingredient5']) && !empty($_POST['ingredient6'])
-         && !empty($_POST['Service']) && !empty($_POST['Quantity']) && !empty($_POST['Quantity2']) && !empty($_POST['Quantity3']) && !empty($_POST['Quantity4'])
-         && !empty($_POST['Quantity5']) && !empty($_POST['Quantity6']) && !empty($_POST['idIngredient'])){
-         echo "tot";
+         if(isset($_POST['action']) && $_POST['action']=="ajouterI" && !empty($_POST['idIngredient'])){
+         echo "toto";
          
          $ajouter = $this->connect()->prepare('INSERT INTO ingredient(
          Id_recette_ingredient,
@@ -467,8 +464,11 @@ class Recette extends Databases{
          $ajouter->bindParam(':qty6', $_POST['Quantity6'],
          PDO::PARAM_STR);
 
+         var_dump($ajouter);
+         $ajouter = $ajouter->execute();
          
-         $estceokk = $ajouter->execute();
+         echo"toto";
+         return $ajouter;
          
       }
    }

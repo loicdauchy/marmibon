@@ -304,7 +304,7 @@
                                                             style="width:50% !important;">
 
                                                         <button style="background:#ba3753!important;" type="submit"
-                                                            value="ajouter" name="action"
+                                                            value="ajouterI" name="action"
                                                             class="btn btn-primary">Enregistrer</button>
                                                     </form>
                                                 </div>                                               
