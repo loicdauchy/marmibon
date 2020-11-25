@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 24 nov. 2020 à 16:25
+-- Généré le :  mer. 25 nov. 2020 à 13:54
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -54,7 +54,6 @@ INSERT INTO `directive` (`Id_recette_directive`, `dir1_directive`, `dir2_directi
 (3, '1 - Faite cuir les pommes de terres\r\npuis coupez les', '2 - Disposez les rondelles de pomme de terres dans un plat', '3 - Ajoutez y le fromage et la crème', '4 - Faite cuir pendant 30 minutes à 220 degré', NULL, NULL, NULL, NULL, NULL, NULL),
 (4, '1 - Disposez les lamelle de pâtes dans un plat adapté', '2 - incorporer la sauce tomates, la crème et la viande', '3 - Salé et faite cuir la préparation 45 min à 210 degré', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (5, '1 - Faite Cuir les noodles', '2 - Faite cuir le poulet, ajoutez y la sauce', '3 - mélanger le tout et servez', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, '1 - préparez votre pâtes', ' 2 - mettre votre sauce', '3 - disposez votre viande', '4 - faite cuir pendant 20 minutes à 220 degré', NULL, NULL, NULL, NULL, NULL, NULL),
 (7, '1 - Préchaffer le four à feu doux (150°C- thermostat 5).', '2 - Beurrer et sucrer un moule rectangle.', '3 - Faire fondre la pralinoise au bain-marie.', '4 - Battre ensemble le beurre et le sucre jusqu\'à ce que le mélange blanchisse.', '5 - Ajouter les oeufs un par un et la farine en 3 fois (après chaque oeuf).', '6 - Ajouter la pralinoise fondue, bien mélanger l\'ensemble.', '7 - Verser la préparation dans un moule, lisser à la spatule.', '8 - Laisser cuire 20 min environ : le gâteau doit être très moelleux. Ne pas hésiter à le sortir même si le couteau ne ressort pas sec.', '9 - Laisser refroidir avant de démouler et de découper en carrés réguliers.', NULL);
 
 -- --------------------------------------------------------
@@ -102,9 +101,7 @@ INSERT INTO `ingredient` (`Id_recette_ingredient`, `srv`, `ing1_ingredient`, `in
 (3, 2, 'Pomme de terre', 'Fromage', 'Crème fraiche', 'sel', 'poivre', 'Beurre', NULL, NULL, NULL, NULL, '3.0', '4.0', '3.0', '4.0', '4.0', '5.0', '6.0', '8.0', '6.0', '8.0', '8.0', '10.0'),
 (4, 2, 'Pâtes', 'Concentré de tomates', 'crème fraiche', 'Viande hachés', 'sel', NULL, NULL, NULL, NULL, NULL, '4.0', '3.0', '4.0', '3.0', '3.0', '4.0', '8.0', '6.0', '8.0', '6.0', '6.0', '8.0'),
 (5, 2, 'Noodles', 'Poulet', 'Sauce teriyaki', 'poivrons', 'sel', NULL, NULL, NULL, NULL, NULL, '5.0', '2.0', '5.0', '2.0', '2.0', '8.0', '10.0', '4.0', '10.0', '4.0', '4.0', '16.0'),
-(6, 3, 'Pâte à pain', 'Sauce tomates', 'Viande hachés', 'poivre', 'sel', NULL, NULL, NULL, NULL, NULL, '6.0', '1.0', '6.0', '1.0', '1.0', '1.0', '18.0', '3.0', '18.0', '3.0', '3.0', '3.0'),
-(7, 8, 'g de pralinoise', 'g de beurre ramolli', 'g de sucre en poudre\r\n', 'g de farine', 'oeufs', NULL, NULL, NULL, NULL, NULL, '33.0', '25.0', '25.0', '8.0', '0.5', NULL, '264.0', '200.0', '200.0', '64.0', '4.0', '0.0'),
-(8, 4, 'trjrt', 'hreher', 'jrtjrt', 'hrehe', 'jtrjr', 'hrehe', NULL, NULL, NULL, NULL, '2.0', '2.0', '2.0', '2.0', '2.0', '2.0', NULL, NULL, NULL, NULL, NULL, NULL);
+(7, 6, 'g de pralinoise', 'g de beurre ramolli', 'g de sucre en poudre\r\n', 'g de farine', 'oeufs', NULL, NULL, NULL, NULL, NULL, '33.0', '25.0', '25.0', '8.0', '0.5', NULL, '198.0', '150.0', '150.0', '48.0', '3.0', '0.0');
 
 -- --------------------------------------------------------
 
@@ -116,15 +113,15 @@ DROP TABLE IF EXISTS `recette`;
 CREATE TABLE IF NOT EXISTS `recette` (
   `Id_recette` bigint(255) NOT NULL AUTO_INCREMENT,
   `Name_recette` varchar(255) DEFAULT NULL,
-  `img_recette` blob DEFAULT NULL,
+  `img_recette` varchar(255) DEFAULT NULL,
   `time_recette` varchar(255) DEFAULT NULL,
   `number_recette` bigint(255) DEFAULT NULL,
   `level_recette` varchar(255) DEFAULT NULL,
   `cost_recette` varchar(255) DEFAULT NULL,
   `description_recette` text DEFAULT NULL,
   `Id_Ingredient` bigint(255) DEFAULT NULL,
-  `likes` int(255) DEFAULT NULL,
-  `dislikes` int(255) DEFAULT NULL,
+  `likes` int(255) NOT NULL,
+  `dislikes` int(255) NOT NULL,
   PRIMARY KEY (`Id_recette`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
@@ -133,13 +130,12 @@ CREATE TABLE IF NOT EXISTS `recette` (
 --
 
 INSERT INTO `recette` (`Id_recette`, `Name_recette`, `img_recette`, `time_recette`, `number_recette`, `level_recette`, `cost_recette`, `description_recette`, `Id_Ingredient`, `likes`, `dislikes`) VALUES
-(1, 'hamburger', 0x7075626c69632f696d672f62672d696d672f72312e6a7067, '20 minutes', 2, 'Facile', '10.98 euros', 'Un hamburger est un sandwich composé de pain, de viande hachée cuite, de crudités et de sauce. ... Aujourd\'hui, en anglais (du moins en anglais américain)', 1, 5, 1),
-(2, 'Hot Dog', 0x7075626c69632f696d672f62672d696d672f72322e6a7067, '15 minutes', 4, 'Facile', '7.92 euros', 'Un hot-dog, hotdog ou hot dog, est un type de sandwich composé d\'un pain allongé (souvent brioché) fourré d\'une saucisse cuite.', 2, 12, 1),
-(3, 'Tartiflette', 0x7075626c69632f696d672f62672d696d672f72332e6a7067, '50 minutes', 6, 'Moyen', '15.20 euros', 'La tartiflette est un plat d\'origine savoyarde qui se déguste généralement en hiver. Ses ingrédients principaux sont les pommes de terre et le reblochon, mais on peut aussi y ajouter des lardons et de la crème.', 3, 1, 0),
-(4, 'Lasagne', 0x7075626c69632f696d672f62672d696d672f72342e6a7067, '40 minutes', 4, 'Moyen', '12.20 euros', 'Les lasagnes sont des pâtes alimentaires en forme de larges plaques. Il s\'agit également de la ... Voyez les conditions d\'utilisation pour plus de détails, ainsi que les crédits graphiques.', 4, 0, 1),
-(5, 'Poulet Teriyaki', 0x7075626c69632f696d672f62672d696d672f72352e6a7067, '45 minutes', 2, 'Difficile', '17.10 euros', 'Le poulet teriyaki consiste à mariner et cuire du poulet dans de la sauce teriyaki, ce qui lui donne sa saveur, mais aussi un extérieur coloré.', 5, 2, 0),
-(6, 'Pizza', 0x7075626c69632f696d672f62672d696d672f72362e6a7067, '30 minutes', 4, 'Facile', '8 euros', 'La pizza est une recette de cuisine traditionnelle de la cuisine italienne, originaire de Naples en Italie (cuisine napolitaine)', 6, 9, 1),
-(7, 'Brownie fondant praliné', 0x7075626c69632f696d672f62672d696d672f72372e6a7067, '50 minutes', 1, 'Facile', '5 euros', 'Selon nos informations, cette recette est compatible avec le régime suivant : végétarien', 7, 12, 3);
+(1, 'hamburger', 'public/img/bg-img/r1.jpg', '20 minutes', 2, 'Facile', '10.98 euros', 'Un hamburger est un sandwich composé de pain, de viande hachée cuite, de crudités et de sauce. ... Aujourd\'hui, en anglais (du moins en anglais américain)', 1, 5, 1),
+(2, 'Hot Dog', 'public/img/bg-img/r2.jpg', '15 minutes', 4, 'Facile', '7.92 euros', 'Un hot-dog, hotdog ou hot dog, est un type de sandwich composé d\'un pain allongé (souvent brioché) fourré d\'une saucisse cuite.', 2, 12, 1),
+(3, 'Tartiflette', 'public/img/bg-img/r3.jpg', '50 minutes', 6, 'Moyen', '15.20 euros', 'La tartiflette est un plat d\'origine savoyarde qui se déguste généralement en hiver. Ses ingrédients principaux sont les pommes de terre et le reblochon, mais on peut aussi y ajouter des lardons et de la crème.', 3, 1, 0),
+(4, 'Lasagne', 'public/img/bg-img/r4.jpg', '40 minutes', 4, 'Moyen', '12.20 euros', 'Les lasagnes sont des pâtes alimentaires en forme de larges plaques. Il s\'agit également de la ... Voyez les conditions d\'utilisation pour plus de détails, ainsi que les crédits graphiques.', 4, 0, 1),
+(5, 'Poulet Teriyaki', 'public/img/bg-img/r5.jpg', '45 minutes', 2, 'Difficile', '17.10 euros', 'Le poulet teriyaki consiste à mariner et cuire du poulet dans de la sauce teriyaki, ce qui lui donne sa saveur, mais aussi un extérieur coloré.', 5, 2, 0),
+(7, 'Brownie fondant praliné', 'public/img/bg-img/r7.jpg', '50 minutes', 1, 'Facile', '5 euros', 'Selon nos informations, cette recette est compatible avec le régime suivant : végétarien', 7, 13, 3);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

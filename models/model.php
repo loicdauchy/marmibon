@@ -276,7 +276,7 @@ class Recette extends Databases{
     
     /**
      * searchI
-     *
+     * SEARCH BY INGREDIENT METHOD
      * @return void
      */
     public function searchI(){
@@ -395,8 +395,13 @@ class Recette extends Databases{
             }
       }
 
-
-      public function admin(){
+      
+      /**
+       * ajouterI
+       * ADDING INGREDIENT METHOD
+       * @return void
+       */
+      public function ajouterI(){
 
          if(isset($_POST['action']) && $_POST['action']=="ajouter" && !empty($_POST['ingredient']) && !empty($_POST['ingredient2']) && !empty($_POST['ingredient3'])
          && !empty($_POST['ingredient4']) && !empty($_POST['ingredient5']) && !empty($_POST['ingredient6'])
@@ -468,6 +473,141 @@ class Recette extends Databases{
       }
    }
 
+   
+   /**
+    * ajouterR
+    * ADDING RECIPE METHOD
+    * @return void
+    */
+   public function ajouterR(){
+      
+      if(isset($_POST['actionn']) && $_POST['actionn']=="ajouterrecip" && !empty($_POST['Idrecette']) && !empty($_POST['Namerecette']) && !empty($_POST['timerecette'])
+      && !empty($_POST['numberrecette']) && !empty($_POST['levelrecette']) && !empty($_POST['costrecette'])
+      && !empty($_POST['descriptionrecette']) && !empty($_POST['IdIngredient']) && !empty($_POST['imgrecette']) && !empty($_POST['like']) && !empty($_POST['dislike'])){
+   
+      $ajouter = $this->connect()->prepare('INSERT INTO recette(
+      Id_recette,
+      Name_recette,
+      img_recette,
+      time_recette,
+      number_recette,
+      level_recette,
+      cost_recette,
+      description_recette,
+      Id_Ingredient,
+      likes,
+      dislikes
+      )
+      VALUES(:Id_recette,:Name_recette,:img_recette,:time_recette,:number_recette,:level_recette,:cost_recette,:description_recette,:Id_Ingredient,:likes,:dislikes)');
+     
+      $ajouter->bindParam(':Id_recette', $_POST['Idrecette'],
+      PDO::PARAM_STR);
+      $ajouter->bindParam(':Name_recette', $_POST['Namerecette'],
+      PDO::PARAM_STR);
+      $ajouter->bindParam(':time_recette', $_POST['timerecette'],
+      PDO::PARAM_STR);
+      
+      $ajouter->bindParam(':number_recette', $_POST['numberrecette'],
+      PDO::PARAM_STR);
+      
+      $ajouter->bindParam(':level_recette', $_POST['levelrecette'],
+      PDO::PARAM_STR);
+      
+      $ajouter->bindParam(':cost_recette', $_POST['costrecette'],
+      PDO::PARAM_STR);
+      
+      $ajouter->bindParam(':Id_Ingredient', $_POST['IdIngredient'],
+      PDO::PARAM_STR);
+     
+      $ajouter->bindParam(':img_recette', $_POST['imgrecette'],
+      PDO::PARAM_STR);
+      
+      $ajouter->bindParam(':description_recette', $_POST['descriptionrecette'],
+      PDO::PARAM_STR);
+
+      $ajouter->bindParam(':likes', $_POST['like'],
+      PDO::PARAM_STR);
+
+      $ajouter->bindParam(':dislikes', $_POST['dislike'],
+      PDO::PARAM_STR);
+      
+      $ajouter = $ajouter->execute();
+      return $ajouter; 
+
+      
+      }
+      
+      }
+      
+      /**
+       * ajouterD
+       * ADDING DIRECTIVE METHOD
+       * @return void
+       */
+      public function ajouterD(){
+      
+         if(isset($_POST['action']) && $_POST['action']=="ajouterD" && !empty($_POST['idDir'])
+         ){
+      
+         $ajouter = $this->connect()->prepare('INSERT INTO directive(
+         Id_recette_directive,
+         dir1_directive,
+         dir2_directive,
+         dir3_directive,
+         dir4_directive,
+         dir5_directive,
+         dir6_directive,
+         dir7_directive,
+         dir8_directive,
+         dir9_directive,
+         dir10_directive
+         )
+         VALUES(:id,:dir1,:dir2,:dir3,:dir4,:dir5,:dir6,:dir7,:dir8,:dir9,:dir10)');
+        
+         $ajouter->bindParam(':id', $_POST['idDir'],
+         PDO::PARAM_STR);
+         $ajouter->bindParam(':dir1', $_POST['dir1'],
+         PDO::PARAM_STR);
+         $ajouter->bindParam(':dir2', $_POST['dir2'],
+         PDO::PARAM_STR);
+         
+         $ajouter->bindParam(':dir3', $_POST['dir3'],
+         PDO::PARAM_STR);
+         
+         $ajouter->bindParam(':dir4', $_POST['dir4'],
+         PDO::PARAM_STR);
+         
+         $ajouter->bindParam(':dir5', $_POST['dir5'],
+         PDO::PARAM_STR);
+         
+         $ajouter->bindParam(':dir6', $_POST['dir6'],
+         PDO::PARAM_STR);
+        
+         $ajouter->bindParam(':dir7', $_POST['dir7'],
+         PDO::PARAM_STR);
+         
+         $ajouter->bindParam(':dir8', $_POST['dir8'],
+         PDO::PARAM_STR);
+   
+         $ajouter->bindParam(':dir9', $_POST['dir9'],
+         PDO::PARAM_STR);
+   
+         $ajouter->bindParam(':dir10', $_POST['dir10'],
+         PDO::PARAM_STR);
+         
+         $ajouter = $ajouter->execute();
+         return $ajouter; 
+   
+         
+         }
+         
+         }
+   
+   /**
+    * modifierI
+    * UPDATE INGREDIENT METHOD
+    * @return void
+    */
    public function modifierI(){
 
       if(isset($_POST['action']) && $_POST['action']=="modifierI"){
@@ -507,7 +647,12 @@ class Recette extends Databases{
       return $modifier;
    }
  }
-
+ 
+ /**
+  * modifierD
+  * UPTADE DIRECTIVE METHOD
+  * @return void
+  */
  public function modifierD(){
 
    if(isset($_POST['action']) && $_POST['action']=="modifierD"){
@@ -544,6 +689,11 @@ class Recette extends Databases{
 }
 }
 
+/**
+ * modifierR
+ * UPDATE RECIPE METHOD
+ * @return void
+ */
 public function modifierR(){
 
    if(isset($_POST['action']) && $_POST['action']=="modifierR"){
@@ -556,7 +706,8 @@ public function modifierR(){
    level_recette = :lvl,
    cost_recette = :cost,
    description_recette = :descr,
-   Id_Ingredient = :idi
+   Id_Ingredient = :idi,
+   img_recette = :img
  
    WHERE Id_recette =:id
    ');
@@ -568,9 +719,55 @@ public function modifierR(){
    $modifier->bindParam(':cost', $_POST['cost'], PDO::PARAM_STR);
    $modifier->bindParam(':descr', $_POST['description'], PDO::PARAM_STR);
    $modifier->bindParam(':idi', $_POST['idIngredient'], PDO::PARAM_STR);
+   $modifier->bindParam(':img', $_POST['imgrecette'], PDO::PARAM_STR);
 
    $modifier = $modifier->execute();
    return $modifier;
 }
+}
+
+/**
+ * supprimerI
+ * DELETE INGREDIENT METHOD
+ * @return void
+ */
+public function supprimerI(){
+   if(isset($_POST['action']) && $_POST['action']=="supprimerI"){
+   $supprimer = $this->connect()->prepare('DELETE FROM ingredient WHERE Id_recette_ingredient =:id');
+            $supprimer->bindParam(':id', $_POST['idIngredient'], 
+            PDO::PARAM_STR);
+            $supprimer = $supprimer->execute();
+            return $supprimer;
+   }
+}
+
+/**
+ * supprimerR
+ * DELETE RECIPE METHOD
+ * @return void
+ */
+public function supprimerR(){
+   if(isset($_POST['action']) && $_POST['action']=="supprimerR"){
+   $supprimer = $this->connect()->prepare('DELETE FROM recette WHERE Id_recette =:id');
+            $supprimer->bindParam(':id', $_POST['idRecette'], 
+            PDO::PARAM_STR);
+            $supprimer = $supprimer->execute();
+            return $supprimer;
+   }
+}
+
+/**
+ * supprimerD
+ * DELETE DIRECTIVE METHOD
+ * @return void
+ */
+public function supprimerD(){
+   if(isset($_POST['action']) && $_POST['action']=="supprimerD"){
+   $supprimer = $this->connect()->prepare('DELETE FROM directive WHERE Id_recette_directive =:id');
+            $supprimer->bindParam(':id', $_POST['idDirective'], 
+            PDO::PARAM_STR);
+            $supprimer = $supprimer->execute();
+            return $supprimer;
+   }
 }
 }

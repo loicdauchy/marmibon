@@ -1,10 +1,10 @@
 <?php ob_start(); ?>
 
-<section style="position:relative; left:150px; padding-top:-200px opacity:0px; cursor:default;">
+<section style=" margin-left:200px; margin-top:200px; opacity:0px; cursor:default;">
 
     <div class="container">
 
-        <div class="row">
+        <div id="buttonAdmin" class="row">
 
             <div class="col-xs-4 col-4">
 
@@ -30,40 +30,42 @@
                                 <div class="container-fluid">
 
 
-                                    <div class="d-flex form-group">
-                                        <form method='GET'>
+                                    <div class="d-flex form-group flex-column">
+                                                <div class="col-12">
+                                                    <h4 style="color:#ba3753;" class="modal-title">Recettes</h4>
+                                                    <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
 
-                                            <input type="text" placeholder="Name recette" name="Namerecette"
-                                                width="25%">
-                                            <input type="text" placeholder="time recette" name="timerecette"
-                                                width="25%">
-                                            <input type="text" placeholder="Number recette" name="numberrecette"
-                                                width="25%">
-                                            <input type="text" placeholder="level recette" name="levelrecette"
-                                                width="25%">
-                                            <input type="text" placeholder="cost recette" name="costrecette"
-                                                width="25%">
-                                            <input type="text" placeholder="descriptionrecette"
-                                                name="description recette" width="25%">
-                                            <input type="text" placeholder="Service" name="Service" width="25%">
-                                            <input type="text" placeholder="Quantity" name="Quantity" width="25%">
-                                            <input type="file" placeholder="image recette" name="imgrecette"
-                                                width="25%">
-                                            <input type="file" placeholder="image ingredient" name="imgingredient"
-                                                width="25%">
-                                            <input type="file" placeholder="image ingredient2" name="imgingredient2"
-                                                width="25%">
-                                            <input type="file" placeholder="image ingredient3" name="imgingredient3"
-                                                width="25%">
-                                            <input type="file" placeholder="image ingredient4" name="imgingredient4"
-                                                width="25%">
-                                            <input type="file" placeholder="image ingredient5" name="imgingredient5"
-                                                width="25%">
-                                            <button type="submit" value="supprimer" name="supprimer"
-                                                class="btn btn-primary">Supprimer</button>
-                                            <button type="button" class="btn btn-danger"
-                                                data-dismiss="modal">Close</button>
-                                        </form>
+                                                        <input type="text" placeholder="Id Recette" name="idRecette"
+                                                            style="width:100% !important;">
+                                                        <button style="background:#ba3753!important;" type="submit"
+                                                            value="supprimerR" name="action"
+                                                            class="btn btn-primary">Supprimer</button>
+                                                    </form>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <h4 style="color:#ba3753;" class="modal-title">Ingrédients</h4>
+                                                    <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
+
+                                                        <input type="text" placeholder="Id Ingrédient" name="idIngredient"
+                                                            style="width:100% !important;">
+                                                        <button style="background:#ba3753!important;" type="submit"
+                                                            value="supprimerI" name="action"
+                                                            class="btn btn-primary">Supprimer</button>
+                                                    </form>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <h4 style="color:#ba3753;" class="modal-title">Directive</h4>
+                                                    <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
+
+                                                        <input type="text" placeholder="Id Directive" name="idDirective"
+                                                            style="width:100% !important;">
+                                                        <button style="background:#ba3753!important;" type="submit"
+                                                            value="supprimerD" name="action"
+                                                            class="btn btn-primary">Supprimer</button>
+                                                    </form>
+                                                </div>
 
 
                                     </div>
@@ -100,66 +102,108 @@
 
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                        <div class="d-flex form-group flex-column">
-                                            <div class="col-12">
-                                            <h4 style="color:#ba3753;" class="modal-title">Ingrédients</h4>
-                                                <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
+                                            <div class="d-flex form-group flex-column">
+                                                <div class="col-12">
+                                                    <h4 style="color:#ba3753;" class="modal-title">Recette</h4>
+                                                    <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
 
-                                                    <input type="text" placeholder="Id Recette" name="idIngredient" style="width:50% !important;">
-                                                    <input type="text" placeholder="Service" name="Service" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity" name="Quantity" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient" name="ingredient" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity2" name="Quantity2" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient2" name="ingredient2" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity3" name="Quantity3" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient3" name="ingredient3" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity4" name="Quantity4" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient4" name="ingredient4" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity5" name="Quantity5" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient5" name="ingredient5" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity6" name="Quantity6" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient6" name="ingredient6" style="width:50% !important;">
+                                                        <input type="text" placeholder="Id Recette" name="idRecette"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Id ingrédient"
+                                                            name="idIngredient" style="width:50% !important;">
+                                                        <input type="text" placeholder="Name" name="name"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Time" name="time"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Number" name="number"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Level" name="level"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Cost" name="cost"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="public/img/bg-img/votre image"
+                                                            name="imgrecette" style="width:50% !important;">
+                                                        <input type="text" placeholder="Description" name="description"
+                                                            style="width:100% !important;">
 
-                                                    <button style="background:#ba3753!important;" type="submit" value="modifierI" name="action" class="btn btn-primary">Enregistrer</button>
-                                                </form>
+
+
+                                                        <button style="background:#ba3753!important;" type="submit"
+                                                            value="modifierR" name="action"
+                                                            class="btn btn-primary">Enregistrer</button>
+                                                    </form>
                                                 </div>
 
                                                 <div class="col-12">
-                                            <h4 style="color:#ba3753;" class="modal-title">Recette</h4>
-                                                <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
+                                                    <h4 style="color:#ba3753;" class="modal-title">Ingrédients</h4>
+                                                    <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
 
-                                                    <input type="text" placeholder="Id Recette" name="idRecette" style="width:50% !important;">
-                                                    <input type="text" placeholder="Name" name="name" style="width:50% !important;">
-                                                    <input type="text" placeholder="Time" name="time" style="width:50% !important;">
-                                                    <input type="text" placeholder="Number" name="number" style="width:50% !important;">
-                                                    <input type="text" placeholder="Level" name="level" style="width:50% !important;">
-                                                    <input type="text" placeholder="Cost" name="cost" style="width:50% !important;">
-                                                    <input type="text" placeholder="Description" name="description" style="width:50% !important;">
-                                                    <input type="text" placeholder="Id ingrédient" name="idIngredient" style="width:50% !important;">
-                                                    
+                                                        <input type="text" placeholder="Id Recette" name="idIngredient"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Service" name="Service"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Quantity" name="Quantity"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="ingredient" name="ingredient"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Quantity2" name="Quantity2"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="ingredient2" name="ingredient2"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Quantity3" name="Quantity3"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="ingredient3" name="ingredient3"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Quantity4" name="Quantity4"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="ingredient4" name="ingredient4"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Quantity5" name="Quantity5"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="ingredient5" name="ingredient5"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Quantity6" name="Quantity6"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="ingredient6" name="ingredient6"
+                                                            style="width:50% !important;">
 
-                                                    <button style="background:#ba3753!important;" type="submit" value="modifierR" name="action" class="btn btn-primary">Enregistrer</button>
-                                                </form>
+                                                        <button style="background:#ba3753!important;" type="submit"
+                                                            value="modifierI" name="action"
+                                                            class="btn btn-primary">Enregistrer</button>
+                                                    </form>
                                                 </div>
 
                                                 <div class="col-12">
-                                            <h4 style="color:#ba3753;" class="modal-title">Directive</h4>
-                                                <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
+                                                    <h4 style="color:#ba3753;" class="modal-title">Directive</h4>
+                                                    <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
 
-                                                    <input type="text" placeholder="Id Directive" name="idDirective" style="width:100% !important;">
-                                                    <input type="text" placeholder="Directive 1" name="dir1" style="width:100% !important;">
-                                                    <input type="text" placeholder="Directive 2" name="dir2" style="width:100% !important;">
-                                                    <input type="text" placeholder="Directive 3" name="dir3" style="width:100% !important;">
-                                                    <input type="text" placeholder="Directive 4" name="dir4" style="width:100% !important;">
-                                                    <input type="text" placeholder="Directive 5" name="dir5" style="width:100% !important;">
-                                                    <input type="text" placeholder="Directive 6" name="dir6" style="width:100% !important;">
-                                                    <input type="text" placeholder="Directive 7" name="dir7" style="width:100% !important;">
-                                                    <input type="text" placeholder="Directive 8" name="dir8" style="width:100% !important;">
-                                                    <input type="text" placeholder="Directive 9" name="dir9" style="width:100% !important;">
-                                                    <input type="text" placeholder="Directive 10" name="dir10" style="width:100% !important;">
-                                                        
-                                                    <button style="background:#ba3753!important;" type="submit" value="modifierD" name="action" class="btn btn-primary">Enregistrer</button>
-                                                </form>
+                                                        <input type="text" placeholder="Id Directive" name="idDirective"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 1" name="dir1"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 2" name="dir2"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 3" name="dir3"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 4" name="dir4"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 5" name="dir5"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 6" name="dir6"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 7" name="dir7"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 8" name="dir8"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 9" name="dir9"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 10" name="dir10"
+                                                            style="width:100% !important;">
+
+                                                        <button style="background:#ba3753!important;" type="submit"
+                                                            value="modifierD" name="action"
+                                                            class="btn btn-primary">Enregistrer</button>
+                                                    </form>
                                                 </div>
 
 
@@ -193,73 +237,110 @@
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
                                             <div class="d-flex form-group flex-column">
-                                            <div class="col-12">
-                                            <h4 style="color:#ba3753;" class="modal-title">Ingrédients</h4>
-                                                <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
+                                                <div class="col-12">
+                                                    <h4 style="color:#ba3753;" class="modal-title">Recette</h4>
+                                                    <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
 
-                                                    <input type="text" placeholder="Id Recette" name="idIngredient" style="width:50% !important;">
-                                                    <input type="text" placeholder="Service" name="Service" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity" name="Quantity" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient" name="ingredient" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity2" name="Quantity2" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient2" name="ingredient2" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity3" name="Quantity3" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient3" name="ingredient3" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity4" name="Quantity4" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient4" name="ingredient4" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity5" name="Quantity5" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient5" name="ingredient5" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity6" name="Quantity6" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient6" name="ingredient6" style="width:50% !important;">
+                                                        <input type="text" placeholder="Id Recette" name="Idrecette"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Id Ingredient"
+                                                            name="IdIngredient" style="width:50% !important;">
+                                                        <input type="text" placeholder="Name recette" name="Namerecette"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="time recette" name="timerecette"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="number recette"
+                                                            name="numberrecette" style="width:50% !important;">
+                                                        <input type="text" placeholder="level recette"
+                                                            name="levelrecette" style="width:50% !important;">
+                                                        <input type="text" placeholder="cost recette" name="costrecette"
+                                                            style="width:50% !important;">
+                                                        <input type="number" hidden name="like" value="1"
+                                                            style="width:50% !important;">
+                                                        <input type="number" hidden name="dislike" value="1"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="public/img/bg-img/votre image"
+                                                            name="imgrecette" style="width:50% !important;">
+                                                        <input type="text" placeholder="description recette"
+                                                            name="descriptionrecette" style="width:100% !important;">
 
-                                                    <button style="background:#ba3753!important;" type="submit" value="ajouter" name="action" class="btn btn-primary">Enregistrer</button>
-                                                </form>
-                                                </div>
-
-                                                    <div class="col-12">
-                                                <h4  style="color:#ba3753;" class="modal-title">Recette</h4>
-                                                <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
-
-                                                    <input type="text" placeholder="Id Recette" name="idIngredient" style="width:50% !important;">
-                                                    <input type="text" placeholder="Service" name="Service" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity" name="Quantity" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient" name="ingredient" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity2" name="Quantity2" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient2" name="ingredient2" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity3" name="Quantity3" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient3" name="ingredient3" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity4" name="Quantity4" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient4" name="ingredient4" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity5" name="Quantity5" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient5" name="ingredient5" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity6" name="Quantity6" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient6" name="ingredient6" style="width:50% !important;">
-
-                                                    <button style="background:#ba3753!important;" type="submit" value="ajouter" name="action" class="btn btn-primary">Enregistrer</button>
-                                                </form>
+                                                        <button style="background:#ba3753!important;" type="submit"
+                                                            value="ajouterrecip" name="actionn"
+                                                            class="btn btn-primary">Enregistrer</button>
+                                                    </form>
                                                 </div>
 
                                                 <div class="col-12">
-                                                <h4 style="color:#ba3753;" class="modal-title">Directive</h4>
-                                                <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
+                                                    <h4 style="color:#ba3753;" class="modal-title">Ingrédients</h4>
+                                                    <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
 
-                                                    <input type="text" placeholder="Id Recette" name="idIngredient" style="width:50% !important;">
-                                                    <input type="text" placeholder="Service" name="Service" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity" name="Quantity" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient" name="ingredient" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity2" name="Quantity2" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient2" name="ingredient2" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity3" name="Quantity3" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient3" name="ingredient3" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity4" name="Quantity4" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient4" name="ingredient4" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity5" name="Quantity5" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient5" name="ingredient5" style="width:50% !important;">
-                                                    <input type="text" placeholder="Quantity6" name="Quantity6" style="width:50% !important;">
-                                                        <input type="text" placeholder="ingredient6" name="ingredient6" style="width:50% !important;">
+                                                        <input type="text" placeholder="Id Recette" name="idIngredient"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Service" name="Service"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Quantity" name="Quantity"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="ingredient" name="ingredient"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Quantity2" name="Quantity2"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="ingredient2" name="ingredient2"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Quantity3" name="Quantity3"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="ingredient3" name="ingredient3"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Quantity4" name="Quantity4"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="ingredient4" name="ingredient4"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Quantity5" name="Quantity5"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="ingredient5" name="ingredient5"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="Quantity6" name="Quantity6"
+                                                            style="width:50% !important;">
+                                                        <input type="text" placeholder="ingredient6" name="ingredient6"
+                                                            style="width:50% !important;">
 
-                                                    <button style="background:#ba3753!important;" type="submit" value="ajouter" name="action" class="btn btn-primary">Enregistrer</button>
-                                                </form>
+                                                        <button style="background:#ba3753!important;" type="submit"
+                                                            value="ajouter" name="action"
+                                                            class="btn btn-primary">Enregistrer</button>
+                                                    </form>
+                                                </div>                                               
+
+                                                <div class="col-12">
+                                                    <h4 style="color:#ba3753;" class="modal-title">Directive</h4>
+                                                    <form action="" method='POST' style="display:flex; flex-wrap:wrap;">
+
+                                                        <input type="text" placeholder="Id directive" name="idDir"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 1" name="dir1"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 2" name="dir2"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 3" name="dir3"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 4" name="dir4"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 5" name="dir5"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 6" name="dir6"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 7" name="dir7"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 8" name="dir8"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 9" name="dir9"
+                                                            style="width:100% !important;">
+                                                        <input type="text" placeholder="Directive 10" name="dir10"
+                                                            style="width:100% !important;">
+
+
+                                                        <button style="background:#ba3753!important;" type="submit"
+                                                            value="ajouterD" name="action"
+                                                            class="btn btn-primary">Enregistrer</button>
+                                                    </form>
                                                 </div>
 
 
@@ -273,6 +354,37 @@
                 </div>
             </div>
 </section>
+
+
+<section id="tableauR">
+    <h4>
+        Liste des recettes :
+    </h4>
+    <table class="steelBlueCols">
+        <thead>
+
+            <tr>
+                <th>ID Recette</th>
+                <th>Nom Recette</th>
+                <th>Lien Recette</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <?php foreach($allRecipe as $result){ ?>
+                <td><?=$result['Id_recette'] ?></td>
+                <td><?=$result['Name_recette'] ?></td>
+                <td><a target="_blank" style="color:white" href=<?='?recipeID='.$result['Id_recette'] ?>> Voir ici</a></td>
+            </tr>
+
+            <?php } ?>
+        </tbody>
+        </tr>
+    </table>
+</section>
+
+
+
 
 
 <?php $title = "Admin"; ?>

@@ -111,15 +111,32 @@ function searchRR(){
     require('views/selectrecipes.php');
 }
 
+/**
+ * admin
+ * ADMIN PAGE CONTROLLER
+ * @return void
+ */
 function admin(){
-    $admin=new Recette();
-    $admin=$admin->admin();
+    $ajouterI=new Recette();
+    $ajouterI=$ajouterI->ajouterI();
+    $ajouterR=new Recette();
+    $ajouterR=$ajouterR->ajouterR();
     $modifierI=new Recette();
+    $ajouterD=new Recette();
+    $ajouterD=$ajouterD->ajouterD();
     $modifierI=$modifierI->modifierI();
     $modifierD=new Recette();
     $modifierD=$modifierD->modifierD();
     $modifierR=new Recette();
     $modifierR=$modifierR->modifierR();
+    $allRecipe = new Recette();
+    $allRecipe = $allRecipe->recettes();
+    $supprimerI = new Recette();
+    $supprimerI = $supprimerI->supprimerI();
+    $supprimerR = new Recette();
+    $supprimerR = $supprimerR->supprimerR();
+    $supprimerD = new Recette();
+    $supprimerD = $supprimerD->supprimerD();
     require ('views/admin.php');
 }
 
