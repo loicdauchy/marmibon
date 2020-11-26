@@ -1452,3 +1452,8 @@ table.steelBlueCols tfoot .links a{
     margin-bottom: 10px;
   }
 }
+
+.single-best-receipe-area.mb-30 img {
+  height: 200px;
+  width: 450px;
+}

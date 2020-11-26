@@ -104,7 +104,7 @@
                             </form>
                             
                             
-                            <h4 class="tqty" style="display:flex; flex-direction:column; width:100px; color:#ba3753;">
+                            <h6 class="tqty" style="display:flex; flex-direction:column; width:100px; color:#ba3753;">
                             <?php
                                 foreach($tquantity as $tqty){
                                     if( $tqty != 0 ){                                       
@@ -114,8 +114,8 @@
                                 }
                             }
                             ?>
-                            </h4>
-                            <h4 style="display:flex; flex-direction:column; width:500px">
+                            </h6>
+                            <h6 style="display:flex; flex-direction:column; width:500px">
                             <?php
 
                                 foreach( $ingredient as $ing ){
@@ -130,7 +130,7 @@
                                     }
                                 }
                             ?>
-                            </h4>
+                            </h6>
                             
                             
                                                

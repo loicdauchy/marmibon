@@ -404,7 +404,6 @@ class Recette extends Databases{
       public function ajouterI(){
 
          if(isset($_POST['action']) && $_POST['action']=="ajouterI" && !empty($_POST['idIngredient'])){
-         echo "toto";
          
          $ajouter = $this->connect()->prepare('INSERT INTO ingredient(
          Id_recette_ingredient,
@@ -423,7 +422,6 @@ class Recette extends Databases{
          qty6
          )
          VALUES(:id,:srv,:ing1_ingredient,:ing2_ingredient,:ing3_ingredient,:ing4_ingredient,:ing5_ingredient,:ing6_ingredient,:qty1,:qty2,:qty3,:qty4,:qty5,:qty6)');
-         echo "toto";
          $ajouter->bindParam(':id', $_POST['idIngredient'],
          PDO::PARAM_STR);
          $ajouter->bindParam(':srv', $_POST['Service'],
@@ -464,10 +462,8 @@ class Recette extends Databases{
          $ajouter->bindParam(':qty6', $_POST['Quantity6'],
          PDO::PARAM_STR);
 
-         var_dump($ajouter);
-         $ajouter = $ajouter->execute();
+         $ajouter=$ajouter->execute();
          
-         echo"toto";
          return $ajouter;
          
       }
