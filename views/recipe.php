@@ -46,7 +46,7 @@
                     <div class="col-12 col-md-8">
                         <div class="receipe-headline my-5">
                             <span>April 05, 2018</span>
-                            <h2><?=$recipe['Name_recette'] ?></h2>
+                            <h2 id="change"><?=$recipe['Name_recette'] ?></h2>
                             <div class="receipe-duration">
                                 <h6>Prép: <?=$recipe['time_recette']?></h6>
                                 <h6>Quantités: <?=$recipe['number_recette']?> personnes</h6>
@@ -80,8 +80,13 @@
                         <div class="ingredients">
                             <h4>Ingrédients:</h4>
 
-                            <form id="change" action="" method="POST" class="d-flex flex-column w-100">
-                            <input style="border:1px solid #ba3753; color:#ba3753;height:40px;font-size:1.5rem" type="number" name="srv" value="<?=$service['srv']?>">
+                            <form  action="" method="POST" class="d-flex flex-column w-100">
+                            <?php if($service == NULL){ ?>
+                                <input style="border:1px solid #ba3753; color:#ba3753;height:40px;font-size:1.5rem" type="number" name="srv" value="<?=$recipe['number_recette']?>" >
+                            <?php }else{ ?>
+                                <input style="border:1px solid #ba3753; color:#ba3753;height:40px;font-size:1.5rem" type="number" name="srv" value="<?=$service?>" >
+                            <?php } ?>
+                            
                             <button onclick='window.location.hash="change"'; class="btn btn-success" style="background:#ba3753 !important; border:none;" type="submit" value="ajouter" name="action">Changer</button>
                             
                             <div style="display:flex;">
@@ -93,40 +98,54 @@
                             <?php 
                             }
                             ?>
-                                
+                             
                                 <?= "<input type='hidden' name='bqty' value='".$bquantity['qty1']."'<br>"?>
                                 <?= "<input type='hidden' name='bqty2' value='".$bquantity['qty2']."'<br>"?>
                                 <?= "<input type='hidden' name='bqty3' value='".$bquantity['qty3']."'<br>"?>
                                 <?= "<input type='hidden' name='bqty4' value='".$bquantity['qty4']."'<br>"?>
                                 <?= "<input type='hidden' name='bqty5' value='".$bquantity['qty5']."'<br>"?>
                                 <?= "<input type='hidden' name='bqty6' value='".$bquantity['qty6']."'<br>"?>
+                                <?= "<input type='hidden' name='nbR' value='".$recipe['number_recette']."'<br>"?>
+
                           
                             </form>
                             
                             
-                            <h6 class="tqty" style="display:flex; flex-direction:column; width:100px; color:#ba3753;">
+                            <h6 class="tqty" style="display:flex; flex-direction:column;  color:#ba3753;">
                             <?php
-                                foreach($tquantity as $tqty){
+                            if($change == NULL){
+                               
+                                echo $bquantity['qty1']."&ensp;<br><br>";
+                                echo $bquantity['qty2']."&ensp;<br><br>";
+                                echo $bquantity['qty3']."&ensp;<br><br>";
+                                echo $bquantity['qty4']."&ensp;<br><br>";
+                                echo $bquantity['qty5']."&ensp;<br><br>";
+                                echo $bquantity['qty6']."&ensp;<br><br>";
+                                     
+                            }else{
+                                foreach($change as $tqty){
                                     if( $tqty != 0 ){                                       
                             ?>                            
-                                <?= $tqty."<br>"?>
+                                <?= $tqty."&ensp;<br><br>"?>
                             <?php
                                 }
                             }
+                        }
                             ?>
                             </h6>
                             <h6 style="display:flex; flex-direction:column; width:500px">
                             <?php
-
+                            
+                            
                                 foreach( $ingredient as $ing ){
                                     if( $ing != NULL ){
                                                             
                             ?>                            
-                               <?= $ing."<br>"?>
+                               <?= $ing."<br><br>"?>
                               
                    
                             <?php
-                             
+                                        
                                     }
                                 }
                             ?>

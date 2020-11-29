@@ -131,12 +131,11 @@ class Recette extends Databases{
       * @param  mixed $recipeID
       * @return void
       */
-     public function service($recipeID){
-        $recette = $this->connect()->prepare('SELECT srv
-        FROM ingredient WHERE id_recette_ingredient='.$recipeID.'');
-        $recette->execute();
-        $result = $recette->fetch(PDO::FETCH_ASSOC);
-        return $result;
+     public function service(){
+      if(isset($_POST['action']) && $_POST['action']=="ajouter" && !empty($_POST['srv'])) {
+      $srv = $_POST['srv'];
+      return $srv;
+      }
      }
           
      /**
@@ -145,7 +144,7 @@ class Recette extends Databases{
       * @return void
       */
      public function change(){
-        if(isset($_POST['action']) && $_POST['action']=="ajouter" && !empty($_POST['srv']) && !empty($_POST['srv'])) {
+        if(isset($_POST['action']) && $_POST['action']=="ajouter" && !empty($_POST['srv'])) {
         $srv = $_POST['srv'];
         $qid = $_POST['qid'];
         $bqty = $_POST['bqty'];
@@ -154,32 +153,52 @@ class Recette extends Databases{
         $bqty4 = $_POST['bqty4'];
         $bqty5 = $_POST['bqty5'];
         $bqty6 = $_POST['bqty6'];
+        $nbR = $_POST['nbR'];
 
-        $delai=0.1;
-         
-        $tqty = $srv * $bqty;
-        $tqty2 = $srv * $bqty2;
-        $tqty3 = $srv * $bqty3;
-        $tqty4 = $srv * $bqty4;
-        $tqty5 = $srv * $bqty5;
-        $tqty6 = $srv * $bqty6;
-
-            
-        $change = $this->connect()->prepare('UPDATE ingredient SET srv = :srv, tqty1 = :tqty1, tqty2 = :tqty2, tqty3 = :tqty3,
-        tqty4 = :tqty4, tqty5 = :tqty5, tqty6 = :tqty6 
         
-        WHERE id_recette_ingredient =:id');
-        $change->bindParam(':id', $qid, PDO::PARAM_STR);
-        $change->bindParam(':srv', $srv, PDO::PARAM_STR);
-        $change->bindParam(':tqty1', $tqty, PDO::PARAM_STR);
-        $change->bindParam(':tqty2', $tqty2, PDO::PARAM_STR);
-        $change->bindParam(':tqty3', $tqty3, PDO::PARAM_STR);
-        $change->bindParam(':tqty4', $tqty4, PDO::PARAM_STR);
-        $change->bindParam(':tqty5', $tqty5, PDO::PARAM_STR);
-        $change->bindParam(':tqty6', $tqty6, PDO::PARAM_STR);                            
-        $change = $change->execute();        
-        $change= header("Refresh:$delai;");
-        return $change;       
+        if($bqty != NULL && $bqty2 == NULL && $bqty3 == NULL && $bqty4 == NULL && $bqty5 == NULL && $bqty6 == NULL){
+         $tqty = ( $srv / $nbR ) * $bqty;
+         $tqtyA = array($tqty);
+
+        }else if ($bqty != NULL && $bqty2 != NULL && $bqty3 == NULL && $bqty4 == NULL && $bqty5 == NULL && $bqty6 == NULL){
+         $tqty = ( $srv / $nbR ) * $bqty;
+         $tqty2 = ( $srv / $nbR ) * $bqty2;
+         $tqtyA = array($tqty, $tqty2);
+
+        }else if($bqty != NULL && $bqty2 != NULL && $bqty3 != NULL && $bqty4 == NULL && $bqty5 == NULL && $bqty6 == NULL){
+         $tqty = ( $srv / $nbR ) * $bqty;
+         $tqty2 = ( $srv / $nbR ) * $bqty2;
+         $tqty3 = ( $srv / $nbR ) * $bqty3;
+         $tqtyA = array($tqty, $tqty2, $tqty3);
+
+        }else if($bqty != NULL && $bqty2 != NULL && $bqty3 != NULL && $bqty4 != NULL && $bqty5 == NULL && $bqty6 == NULL){
+         $tqty = ( $srv / $nbR ) * $bqty;
+         $tqty2 = ( $srv / $nbR ) * $bqty2;
+         $tqty3 = ( $srv / $nbR ) * $bqty3;
+         $tqty4 = ( $srv / $nbR ) * $bqty4;
+         $tqtyA = array($tqty, $tqty2, $tqty3, $tqty4);
+
+        }else if($bqty != NULL && $bqty2 != NULL && $bqty3 != NULL && $bqty4 != NULL && $bqty5 != NULL && $bqty6 == NULL){
+         $tqty = ( $srv / $nbR ) * $bqty;
+         $tqty2 = ( $srv / $nbR ) * $bqty2;
+         $tqty3 = ( $srv / $nbR ) * $bqty3;
+         $tqty4 = ( $srv / $nbR ) * $bqty4;
+         $tqty5 = ( $srv / $nbR ) * $bqty5;
+         $tqtyA = array($tqty, $tqty2, $tqty3, $tqty4, $tqty5);
+
+        }else if($bqty != NULL && $bqty2 != NULL && $bqty3 != NULL && $bqty4 != NULL && $bqty5 != NULL && $bqty6 != NULL){
+         $tqty = ( $srv / $nbR ) * $bqty;
+         $tqty2 = ( $srv / $nbR ) * $bqty2;
+         $tqty3 = ( $srv / $nbR ) * $bqty3;
+         $tqty4 = ( $srv / $nbR ) * $bqty4;
+         $tqty5 = ( $srv / $nbR ) * $bqty5;
+         $tqty6 = ( $srv / $nbR ) * $bqty6;
+         $tqtyA = array($tqty, $tqty2, $tqty3, $tqty4, $tqty5, $tqty6);
+        }else{
+
+        }
+
+        return $tqtyA;       
       }
     }
      

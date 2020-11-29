@@ -59,7 +59,7 @@ function singleRecipe(){
     $directive = $directive->directive($_GET['recipeID']);
 
     $service = new Recette();
-    $service = $service->service($_GET['recipeID']);
+    $service = $service->service();
 
     $slike = new Recette();
     $slike = $slike->likke($_GET['recipeID']);
